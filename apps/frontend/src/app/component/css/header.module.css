@@ -1,0 +1,258 @@
+ .container {
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 2rem;
+
+    background: linear-gradient(
+        135deg,
+        #1a1a2e,
+        #16213e,
+        #0f3460
+    );
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    direction: rtl;
+
+    position: relative;
+    z-index: 100;
+}
+
+/* عنوان فروشگاه */
+
+.store {
+    position: absolute;
+    right: 30px;
+
+    font-size: 20px;
+    font-family: Vazir, sans-serif;
+    font-weight: 700;
+
+    color: orange;
+
+    white-space: nowrap;
+}
+
+/* =========================
+   Navigation
+========================= */
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 45px;
+
+    margin: 0;
+}
+
+/* لینک‌ها */
+
+.cartLink {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: #f1c40f;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.cartLink:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   Menu Button
+========================= */
+
+.menuToggle {
+    display: none;
+
+    position: absolute;
+    left: 20px;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 26px;
+
+    cursor: pointer;
+
+    z-index: 110;
+}
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 900px) {
+
+    .store {
+        right: 20px;
+    }
+
+    .nav {
+        gap: 25px;
+    }
+
+    .cartLink {
+        font-size: 15px;
+    }
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        min-height: 65px;
+
+        padding: 0.8rem 1rem;
+    }
+
+    .store {
+        position: static;
+
+        margin: 0 auto;
+
+        font-size: 18px;
+    }
+
+    .menuToggle {
+        display: block;
+    }
+
+    /* 
+       منوی موبایل
+       ابتدا مخفی است
+    */
+
+    .nav {
+        position: absolute;
+
+        top: 100%;
+        right: 0;
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 25px;
+
+        padding: 0 10px;
+
+        background: #16213e;
+
+        /*
+           وضعیت بسته
+        */
+
+        max-height: 0;
+
+        opacity: 0;
+
+        overflow: hidden;
+
+        transform: translateY(-10px);
+
+        pointer-events: none;
+
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+
+        transition:
+            max-height 0.45s ease,
+            opacity 0.3s ease,
+            transform 0.45s ease,
+            padding 0.45s ease;
+    }
+
+    /*
+       وضعیت باز
+    */
+
+    .nav.active {
+        max-height: 100px;
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+        padding: 15px 10px;
+
+        pointer-events: auto;
+    }
+
+    .cartLink {
+        width: auto;
+
+        padding: 8px 12px;
+
+        text-align: center;
+
+        white-space: nowrap;
+
+        border-radius: 8px;
+
+        font-size: 14px;
+    }
+
+    .cartLink:hover {
+        background: rgba(255, 255, 255, 0.08);
+
+        transform: none;
+    }
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 480px) {
+
+    .nav {
+        gap: 12px;
+    }
+
+    .nav.active {
+        padding: 12px 5px;
+    }
+
+    .cartLink {
+        padding: 7px 8px;
+
+        font-size: 13px;
+    }
+
+    .menuToggle {
+        left: 12px;
+
+        font-size: 23px;
+    }
+
+    .store {
+        font-size: 16px;
+    }
+}
+ 
