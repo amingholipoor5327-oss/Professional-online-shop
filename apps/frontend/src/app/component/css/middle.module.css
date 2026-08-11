@@ -1,0 +1,31 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.8rem;
+  padding: 1rem 2rem 3rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  direction: rtl;
+box-shadow:
+  0 4px 8px rgba(0, 0, 0, 0.12),
+  0 12px 24px rgba(0, 0, 0, 0.18),
+  0 24px 48px rgba(0, 0, 0, 0.12);
+   
+}
+
+ 
+
+@media (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1rem;
+    padding: 0.8rem 1rem 1.5rem;
+  }
+
+  .pageTitle {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 0.8rem;
+  }
+}
+
+ 

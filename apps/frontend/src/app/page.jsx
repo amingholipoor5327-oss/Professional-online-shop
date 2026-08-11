@@ -1,4 +1,5 @@
 import Hero from "./component/sessionHero/sessionHero";
+import Maincontent from "./component/page/maincontent";
 export  async function generateMetadata({ }){
     return{
         title: "Home/your online cart",
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <div>
     <Hero></Hero>
+    <Maincontent></Maincontent>
     </div>
   );
 }
