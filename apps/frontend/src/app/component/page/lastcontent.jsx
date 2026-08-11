@@ -30,7 +30,7 @@ export default function LastContent({ product }) {
     return (
         <div className={styles.container}>
 
-             <Link href={"/cart"}>
+             <Link href={`/cart/${product.id}`}>
                 <div className={styles.imageWrapper}>
                     <img
                         src={product.image}
@@ -41,7 +41,7 @@ export default function LastContent({ product }) {
             </Link>
 
              <Link
-                href={"/cart"}
+                href={`/cart/${product.id}`}
                 className={styles.contentLink}
             >
                 <div className={styles.content}>
