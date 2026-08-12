@@ -1,0 +1,371 @@
+.container {
+    direction: rtl;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 80vh;
+}
+
+.title {
+    text-align: center;
+    color: #1a1a2e;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.content {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.7fr)
+        minmax(300px, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.section {
+    background: #ffffff;
+    border: 1px solid #ede8e8;
+    border-radius: 18px;
+    padding: 1.7rem;
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.06);
+}
+
+.section h2 {
+    margin: 0 0 1.5rem;
+    color: #1a1a2e;
+    font-size: 1.25rem;
+ }
+
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.field label {
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    font-family: inherit;
+    color: black;
+    font-size: 0.9rem;
+    direction: rtl;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: #2a5298;
+    box-shadow:
+        0 0 0 3px rgba(42, 82, 152, 0.1);
+}
+
+.field textarea {
+    resize: vertical;
+}
+.field input::placeholder,
+.field textarea::placeholder{
+    color: gray;
+}
+
+.paymentMethods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.paymentMethod {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 2px solid #eeeeee;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paymentMethod:hover {
+    border-color: #2a5298;
+}
+
+.paymentMethod.selected {
+    border-color: #2a5298;
+    background:
+        rgba(42, 82, 152, 0.05);
+}
+
+.paymentMethod input {
+    accent-color: #2a5298;
+    width: 18px;
+    height: 18px;
+}
+
+.paymentMethod div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.paymentMethod strong {
+    color: #1a1a2e;
+}
+
+.paymentMethod span {
+    color: #888;
+    font-size: 0.8rem;
+}
+ 
+.submit {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem;
+    background:
+        linear-gradient(
+            135deg,
+            #1a3a6b,
+            #2a5298
+        );
+
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #e67e22,
+            #f39c12
+        );
+
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 20px
+        rgba(230, 126, 34, 0.25);
+}
+.submit.sucses{
+   background:linear-gradient(135deg , rgb(0, 100, 0) , rgb(0, 104, 0) )
+}
+.summary {
+    position: sticky;
+    top: 20px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.5rem;
+    border: 1px solid #f0f0f0;
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.07);
+}
+
+.summary h2 {
+    margin: 0 0 1.5rem;
+    color: #1a1a2e;
+    font-size: 1.3rem;
+}
+ 
+.products {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.productImage {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    background: #f5f5f5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.productImage img {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    object-fit: contain;
+}
+
+.productInfo {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.productInfo h3 {
+    margin: 0;
+    color: #1a1a2e;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    overflow: hidden;
+}
+
+.productInfo span {
+    color: #888;
+    font-size: 0.75rem;
+}
+ 
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.row span:last-child {
+    color: #1a1a2e;
+    font-weight: 700;
+}
+ 
+.finalPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.3rem;
+    color: #1a1a2e;
+}
+
+.finalPrice strong {
+    color: #1a9900;
+    font-size: 1.1rem;
+}
+
+ 
+.backToCart {
+    display: block;
+    margin-top: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    color: #2a5298;
+     background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    transition: all .5s ease;
+}
+
+.backToCart:hover {
+    color: #e67e22;
+    transform: translateY(-3px);
+}
+
+ 
+.empty {
+    direction: rtl;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.empty h1 {
+    color: #1a1a2e;
+}
+
+.empty p {
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+
+.backButton {
+    text-decoration: none;
+    background:
+        linear-gradient(
+            135deg,
+            #1a3a6b,
+            #2a5298
+        );
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+}
+ 
+@media (max-width: 900px) {
+    .container {
+        padding: 1.5rem;
+    }
+    .content {
+        grid-template-columns: 1fr;
+    }
+    .summary {
+        position: static;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .section {
+        padding: 1.2rem;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .paymentMethod {
+        padding: 0.8rem;
+    }
+
+    .summary {
+        padding: 1.2rem;
+    }
+}
