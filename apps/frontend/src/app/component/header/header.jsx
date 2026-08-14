@@ -42,6 +42,14 @@ export default function Header() {
                 >
                     سبد خرید
                 </Link>
+                
+                <Link
+                    href="/contact"
+                    className={styles.cartLink}
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                     درباره ما   
+                </Link>
             </nav>
 
              <button
