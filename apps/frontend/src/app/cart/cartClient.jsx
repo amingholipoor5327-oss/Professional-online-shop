@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "../component/css/cart.module.css";
+import { Cartcontext } from "../context/context";
+import Link from "next/link";
 
 export default function CartClient({ product }) {
   const [isAdded, setIsAdded] = useState(false);
+  const { addcart} = useContext(Cartcontext)
 
   return (
     <div className={styles.container}>
@@ -14,7 +17,16 @@ export default function CartClient({ product }) {
         </div>
         <div className={styles.details}>
           <h1 className={styles.title}>{product.title}</h1>
-          <p className={styles.category}>{product.category}</p>
+
+
+           <Link
+            className={styles.category}
+            href={`/category/${encodeURIComponent(product.category)}`}
+            >
+              {product.category} 
+            </Link> 
+
+
           <p className={styles.price}>${product.price}</p>
           <p className={styles.description}>{product.description}</p>
           <div className={styles.rating}>
@@ -24,8 +36,10 @@ export default function CartClient({ product }) {
             <button
               className={`${styles.addBtn} ${isAdded ? styles.added : ''}`}
               onClick={() => {
+                addcart(product)
                 setIsAdded(!isAdded);
                 setTimeout(() => setIsAdded(false), 3000);
+                
               }}
             >
               {isAdded ? "✅ اضافه شد" : "➕ افزودن به سبد خرید"}
