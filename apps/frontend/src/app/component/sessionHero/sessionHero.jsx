@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../css/Hero.module.css";
 export default function Hero(){
     return(
@@ -8,7 +9,7 @@ export default function Hero(){
             <div className={styles.hero}>
                 <h1>اکادمی امین قلی پور</h1>
                 <h3>بهترین محصولات را با قیمتی باور نکردنی تهیه کنید.همین حالا کالاهای موجود رو برسی کرده و تجربه ای جدید را به دست بیاوردید</h3>
-                <button>نمایش محصولات</button>
+                <Link href={"/store"}><button>نمایش محصولات</button></Link>
             </div>
         </div>
     )
