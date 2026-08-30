@@ -26,7 +26,7 @@ export default function LastContent({ product }) {
             setIsAdded(false);
         }, 2000);
     }
-
+console.log("IMAGE:", product.image);
     return (
         <div className={styles.container}>
 

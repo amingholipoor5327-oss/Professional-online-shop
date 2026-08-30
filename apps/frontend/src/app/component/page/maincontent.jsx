@@ -12,10 +12,18 @@ export async function generateMetadata() {
 }
 
 export default async function Maincontent() {
-  try {
-    let response = await fetch("https://fakestoreapi.com/products/");
+   let mainproducts = []; 
+  try{
+     let response = await fetch("http://localhost:3000/api/products");
     let products = await response.json();
 
+    let firstporoduct = products.slice(0,3)
+    let secoundproduct = products.slice(10 , 15) 
+     mainproducts = [...firstporoduct , ...secoundproduct]}
+
+     catch(error){
+      console.log(error.message)
+    }
     return (
       <div>
      <h1
@@ -29,10 +37,8 @@ export default async function Maincontent() {
 >
   محصولات پرفروش
 </h1>
-        <Middle product={products} />
+        <Middle product={mainproducts} />
       </div>
     );
-  } catch (error) {
-    console.log(error);
-  }
-}
+  }  
+ 
