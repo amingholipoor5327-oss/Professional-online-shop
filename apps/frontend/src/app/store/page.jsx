@@ -1,4 +1,4 @@
-import Maincontent from "../component/page/maincontent";
+import Middlestore from "./middlestore";
 
 export async function generateMetadata() {
   return {
@@ -7,10 +7,18 @@ export async function generateMetadata() {
   };
 }
 
-export default function Store() {
+export default async function Store() {
+  let products = [] ; 
+  try{
+     let response = await fetch("http://localhost:3000/api/products");
+      products = await response.json();
+ }
+     catch(error){
+      console.log(error.message)
+    }  
   return (
     <div>
-      <Maincontent />
+      <Middlestore product={products}/>
     </div>
   );
 }
