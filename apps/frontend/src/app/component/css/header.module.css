@@ -51,6 +51,22 @@
     transform: translateY(-3px);
 }
 
+.len { 
+    color: white;
+    position: absolute;
+    left: 36.2rem;
+    font-size: 10px;
+    background-color: red;
+    border-radius: 7px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    top: 23px;
+
+}
+.len.clearlen{
+    opacity: 0; 
+}
 .menuToggle {
     display: none;
     position: absolute;
@@ -63,7 +79,7 @@
     z-index: 110;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
 
     .store {
         right: 20px;
@@ -71,6 +87,9 @@
 
     .nav {
         gap: 25px;
+    }
+    .len{
+        left: 27.1rem;
     }
 
     .cartLink {
@@ -93,6 +112,10 @@
 
         font-size: 18px;
     }
+    .len { 
+ 
+    left: 18.5rem; 
+}
 
     .menuToggle {
         display: block;

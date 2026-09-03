@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import styles from "../css/header.module.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Cartcontext } from "@/app/context/context";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const {cart} = useContext(Cartcontext)
 
     return (
         <header className={styles.container}>
@@ -41,8 +43,16 @@ export default function Header() {
                     onClick={() => setIsMenuOpen(false)}
                 >
                     سبد خرید
+                   
                 </Link>
-                
+
+                 <span className={
+                    `${styles.len} ${cart.length === 0? styles.clearlen : ""}`}>
+                        {
+                     cart.length> 0 ? cart.length : ""
+                     }
+                     </span>
+
                 <Link
                     href="/contact"
                     className={styles.cartLink}
