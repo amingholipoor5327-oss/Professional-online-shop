@@ -1,9 +1,10 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styles from "../component/css/cartshop.module.css";
 import { Cartcontext } from "../context/context";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
 const {
@@ -14,9 +15,32 @@ const {
     clearcart,
 } = useContext(Cartcontext);
 
+const router = useRouter()
+const [clearing , setClearing] = useState(false)
+
     // تبدیل قیمت دلار به تومان + نمایش اعداد فارسی
     function formatPrice(price) {
         return Math.round(price * 85000).toLocaleString("fa-IR");
+    }
+    
+    function handelclearing(){
+        setClearing(true) 
+        clearcart()
+        
+        setTimeout(() => {
+            router.push("/store")
+        }, 1500);
+    }
+
+     if (clearing) {
+        return (
+            <div className={styles.empty}>
+                <h1>سبد خرید خالی است🛒</h1>
+
+            <div className={styles.loader}></div>
+                <p> لطفا صبر کنید...</p>
+            </div>
+        );
     }
 
     if (cart.length === 0) {
@@ -123,7 +147,7 @@ const {
 
                      <button
                         className={styles.clear}
-                        onClick={clearcart}
+                        onClick={handelclearing}
                     >
                         خالی کردن سبد خرید
                     </button>

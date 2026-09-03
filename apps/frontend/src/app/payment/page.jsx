@@ -193,11 +193,11 @@ export default function Payment() {
                         disabled={!isFormValid() || issubmit}
                     >
                         {issubmit ? (
-                            "✅ سفارش شما ثبت شد!"
+                            " سفارش شما ثبت شد!"
                         ) : isFormValid() ? (
-                            "📝 ثبت سفارش"
+                            " ثبت سفارش"
                         ) : (
-                            "🔒 ابتدا فیلدها را پر کنید"
+                            " ابتدا فیلدها را پر کنید"
                         )}
                     </button>
                 </form>
