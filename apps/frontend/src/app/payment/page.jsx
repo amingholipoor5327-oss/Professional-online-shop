@@ -23,10 +23,7 @@ export default function Payment() {
     function handleChange(e) {
         const { name, value } = e.target;
 
-        setForm((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
+        setForm((prev) => ({...prev , [name]: value,}));
     }
 
      const isFormValid = () => {
@@ -38,34 +35,50 @@ export default function Payment() {
         );
     };
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
         if (!isFormValid()) {
             alert("❌ لطفاً تمام فیلدها را پر کنید!");
             return;
         }
+         setIssubmit(true);
+        const Orderdata = {
+            user : form , 
+            cart , 
+            totalprice : totalprice() , 
+            paymentMethod , 
+        }
 
-        setIssubmit(true);
+        try{
 
-        console.log("اطلاعات سفارش:", {
-            form,
-            paymentMethod,
-            cart,
-            total: totalprice(),
-        });
+            const request = await fetch("http://localhost:3000/api/order", {
+                method : "POST" , 
+                headers : {"Content-Type" : "application/json"} , 
+                body : JSON.stringify(Orderdata)
+            }
+            )
+            if(request.ok){
+            setTimeout(() => {
+                alert("✅ سفارش شما با موفقیت ثبت شد!");
+                setForm({
+                    name: "",
+                    phone: "",
+                    address: "",
+                    postalCode: "",
+                })
+                            setIssubmit(false);
 
-         setTimeout(() => {
-            alert("✅ سفارش شما با موفقیت ثبت شد!");
-             setForm({
-                name: "",
-                phone: "",
-                address: "",
-                postalCode: "",
-             })
-             setIssubmit(false);
-            clearcart()
-        }, 3000);
+                clearcart()
+            }, 3000);
+
+            }else{
+                alert("مشکلی در ثبت سفارش به وجود امد ")
+            }
+        }catch(error){
+        alert("خطا در دریافت اطلاعات سفارش ")
+
+        } 
     }
 
     if (cart.length === 0) {
@@ -131,7 +144,7 @@ export default function Payment() {
                         <div className={styles.field}>
                             <label>کد پستی</label>
                             <input
-                                type="text"
+                                type="number"
                                 name="postalCode"
                                 value={form.postalCode}
                                 onChange={handleChange}
