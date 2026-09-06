@@ -46,12 +46,13 @@ export default function Header() {
                    
                 </Link>
 
-                 <span className={
-                    `${styles.len} ${cart.length === 0? styles.clearlen : ""}`}>
+                {cart.length> 0 &&
+                <span className={styles.len}>
                         {
-                     cart.length> 0 ? cart.length : ""
+                            cart.length
                      }
                      </span>
+                } 
 
                 <Link
                     href="/contact"
