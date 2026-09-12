@@ -70,7 +70,7 @@ export default function Payment() {
                             setIssubmit(false);
 
                 clearcart()
-            }, 3000);
+            }, 1000);
 
             }else{
                 alert("مشکلی در ثبت سفارش به وجود امد ")

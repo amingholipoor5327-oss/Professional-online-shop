@@ -22,7 +22,7 @@ export default async function Maincontent() {
      mainproducts = [...firstporoduct , ...secoundproduct]}
 
      catch(error){
-      console.log(error.message)
+      console.log(`error : ${error.message}`)
     }
     return (
       <div>
