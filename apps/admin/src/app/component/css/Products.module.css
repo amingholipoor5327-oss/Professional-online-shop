@@ -1,0 +1,141 @@
+/* ===== کانتینر اصلی ===== */
+.Container {
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.Title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* ===== جدول ===== */
+.Table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.Table thead {
+  background: #1e293b;
+}
+
+.Table th {
+  padding: 16px 20px;
+  text-align: left;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.Table tbody tr {
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.Table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.Table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.Table td {
+  padding: 16px 20px;
+  color: #334155;
+  font-size: 15px;
+}
+
+/* ===== ستون اکشن ===== */
+.Actions {
+  display: flex;
+  gap: 10px;
+}
+
+.ActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.EditBtn {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.EditBtn:hover {
+  background: #2563eb;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.DeleteBtn {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.DeleteBtn:hover {
+  background: #dc2626;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+}
+
+/* ===== حالت خالی ===== */
+.Empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+/* ===== خطا ===== */
+.Error {
+  padding: 20px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  color: #dc2626;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* ===== ریسپانسیو ===== */
+@media (max-width: 600px) {
+  .Container {
+    padding: 15px;
+  }
+
+  .Table th,
+  .Table td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+
+  .ActionBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+}
