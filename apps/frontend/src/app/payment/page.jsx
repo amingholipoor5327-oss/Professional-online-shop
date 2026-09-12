@@ -47,10 +47,9 @@ export default function Payment() {
             user : form , 
             cart , 
             totalprice : totalprice() , 
-            paymentMethod , 
+            paymentMethod : paymentMethod, 
         }
-
-        try{
+         try{
 
             const request = await fetch("http://localhost:3000/api/order", {
                 method : "POST" , 

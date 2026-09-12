@@ -6,12 +6,13 @@ export async function POST(request ) {
     try{
     await connectDB() ;
 
-    const {user  , cart , totalprice } = await request.json()
+    const {user  , cart , totalprice , paymentMethod } = await request.json()
 
     const newOreder = new Order({ 
         user  , 
         cart , 
-        totalprice ,     
+        totalprice ,
+        paymentMethod     
     })
 
      await newOreder.save()

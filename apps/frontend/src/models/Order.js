@@ -22,10 +22,6 @@ const Orderrequest = new mongoose.Schema(
         type: String,
         required: true,
       },
-        paymentMethod: {
-        type: String,
-        default: "online",
-    }, 
     },
 
     cart: [
@@ -90,7 +86,10 @@ const Orderrequest = new mongoose.Schema(
       type: String,
       default: "pending",
     },
-
+    paymentMethod: {
+      type: String,
+      default: "online",
+    }, 
     timecount: {
       type: Date,
       default: Date.now,
