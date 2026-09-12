@@ -1,0 +1,139 @@
+.Container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: #1e293b;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.Visible {
+  transform: translateX(0);
+}
+ 
+@media (min-width: 769px) {
+  .Container {
+    transform: translateX(0);
+  }
+}
+
+.Logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0 20px;
+  color: #38bdf8;
+  border-bottom: 1px solid #334155;
+  margin-bottom: 20px;
+}
+
+.Nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+ 
+.Link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 15px;
+  transition: all 0.25s ease;
+}
+
+.Link:hover {
+  background-color: #334155;
+  color: #fff;
+}
+
+
+ 
+.Active {
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  transform: translateX(-7%);
+}
+
+
+.Active:hover {
+  background-color: #0ea5e9;
+  color: #0f172a;
+}
+
+.Icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.Footer {
+  border-top: 1px solid #334155;
+  padding-top: 15px;
+}
+
+.LogoutBtn {
+  width: 100%;
+  padding: 10px;
+  background-color: #7b0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.LogoutBtn:hover {
+  background-color: #fa0000;
+}
+
+.ToggleBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background-color: #1e293b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ToggleBtn:hover {
+  background-color: #334155;
+}
+
+@media (min-width: 769px) {
+  .ToggleBtn {
+    display: none;
+  }
+}
+.Overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
