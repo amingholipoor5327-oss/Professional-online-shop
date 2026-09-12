@@ -8,7 +8,7 @@ export async function POST(request ) {
 
     const {user  , cart , totalprice } = await request.json()
 
-    const newOreder = new Order({
+    const newOreder = new Order({ 
         user  , 
         cart , 
         totalprice ,     

@@ -10,7 +10,7 @@ export async function GET() {
     return Response.json(products);
   } catch (error) {
     console.error(error);
-
+  
     return Response.json(
       { error: "خطا در دریافت محصولات" },
       { status: 500 }
