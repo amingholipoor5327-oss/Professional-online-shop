@@ -17,3 +17,23 @@ export async function GET() {
     );
   }
 }
+
+export async function POST(request) {
+  try {
+    await connectDB();
+    const data = await request.json();
+
+    
+    const lastProduct = await Product.findOne().sort({ id: -1 });
+    const newId = lastProduct ? lastProduct.id + 1 : 1;
+
+    const newproduct = new Product({
+      ...data,
+      id: newId,             
+    });
+    await newproduct.save()
+    return Response.json(newproduct, { status: 201 })
+  } catch(error) {
+    return Response.json({ error: error.message }, { status: 500 })
+  }
+}

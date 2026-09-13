@@ -2,46 +2,47 @@ import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema(
   {
-    id: {
-      type: Number,
-      required: true,
-      unique: true,
-    },
-
+    
     title: {
       type: String,
-      required: true,
+      required: [true, "Title is required"],
+      trim: true,
     },
+     id: {                             
+      type: Number,
+      required: true,
+      unique: true, 
+   },
 
     price: {
       type: Number,
-      required: true,
+      required: [true, "Price is required"],
+      min: 0,
     },
 
     description: {
       type: String,
-      required: true,
+      required: [true, "Description is required"],
     },
 
     category: {
       type: String,
-      required: true,
+      required: [true, "Category is required"],
     },
 
     image: {
       type: String,
-      required: true,
+      required: [true, "Image URL is required"],
     },
 
-    rating: {
+     rating: {
       rate: {
         type: Number,
-        required: true,
+        default: 0,
       },
-
       count: {
         type: Number,
-        required: true,
+        default: 0,
       },
     },
   },
@@ -50,5 +51,5 @@ const ProductSchema = new mongoose.Schema(
   }
 );
 
-
-export default  mongoose.models.Product || mongoose.model("Product", ProductSchema);
+export default mongoose.models.Product ||
+  mongoose.model("Product", ProductSchema);
