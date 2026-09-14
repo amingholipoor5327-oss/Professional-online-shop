@@ -47,12 +47,12 @@ export default async function Products() {
                 <td>{item.title}</td>
                 <td>
                   <div className={styles.Actions}>
-                    <button className={`${styles.ActionBtn} ${styles.EditBtn}`}>
+                    <Link href={`/Products/edit/${item.id}`} className={`${styles.ActionBtn} ${styles.EditBtn}`}>
                       <FaEdit />
-                    </button>
-                    <button className={`${styles.ActionBtn} ${styles.DeleteBtn}`}>
+                    </Link>
+                    <Link href={`/Products/delete/${item.id}`} className={`${styles.ActionBtn} ${styles.DeleteBtn}`}>
                       <FaTrash />
-                    </button>
+                    </Link>
                   </div>
                 </td>
               </tr>
