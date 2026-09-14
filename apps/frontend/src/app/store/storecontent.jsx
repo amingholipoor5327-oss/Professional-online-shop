@@ -5,6 +5,12 @@ import styles from "../component/css/Lastcontent.module.css";
 import { useContext, useState } from "react";
 import { Cartcontext } from "../context/context";
 
+
+function isNew(createdAt) {
+  if (!createdAt) return false
+  return Date.now() - new Date(createdAt).getTime() < 24 * 60 * 60 * 1000
+}
+
 export default function Storecontent({product}) {
  
     const [isAdded, setIsAdded] = useState(false);
@@ -29,7 +35,9 @@ export default function Storecontent({product}) {
     }
      return (
         <div className={styles.container}>
-
+        {isNew(product.createdAt) && (
+             <span className={styles.newBadge}>NEW</span>
+         )}
              <Link href={`/cart/${product.id}`}>
                 <div className={styles.imageWrapper}>
                     <img

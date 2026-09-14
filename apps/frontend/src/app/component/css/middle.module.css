@@ -13,8 +13,24 @@ box-shadow:
   0 24px 48px rgba(0, 0, 0, 0.12);
    
 }
-
- 
+.error{
+  color:red; 
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+.empty{
+    color:red; 
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+}
 
 @media (max-width: 768px) {
   .gridContainer {

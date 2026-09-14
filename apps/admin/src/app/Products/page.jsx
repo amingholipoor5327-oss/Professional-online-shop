@@ -2,6 +2,10 @@ import { FaEdit, FaTrash } from "react-icons/fa"
 import styles from "../component/css/Products.module.css"
 import Link from "next/link"
 
+function isNew(createdAt){
+  if(!createdAt) return false; 
+  return Date.now() - new Date(createdAt).getTime()< 24 * 60 * 60 * 1000
+}
 export default async function Products() {
   let res = []
    try {
@@ -22,6 +26,7 @@ export default async function Products() {
       </div>
     )
   }
+  
 
   return (
     <div className={styles.Container}> 
@@ -44,7 +49,12 @@ export default async function Products() {
           <tbody>
             {res.map((item) => (
               <tr key={item._id}>
-                <td>{item.title}</td>
+               <td>
+                  {item.title}
+                  {isNew(item.createdAt) && (
+                    <span className={styles.newBadge}>NEW</span>
+                  )}
+                </td>
                 <td>
                   <div className={styles.Actions}>
                     <Link href={`/Products/edit/${item.id}`} className={`${styles.ActionBtn} ${styles.EditBtn}`}>

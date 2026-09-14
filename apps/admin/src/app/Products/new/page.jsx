@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import styles from "../../component/css/newproduct.module.css"
 import Link from "next/link"
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
+import { FaArrowLeft} from "react-icons/fa"
 
 export default function NewProduct() {
   const router = useRouter()
@@ -15,7 +15,7 @@ export default function NewProduct() {
     description: "",      
     category: "men's clothing",
   })
-
+  const [loading , setLoading] = useState(false);
   function handleInput(e) {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
@@ -23,7 +23,7 @@ export default function NewProduct() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
+    setLoading(true)
     try {
       const res = await fetch("http://localhost:3001//api/products", {
         method: "POST",
@@ -38,6 +38,8 @@ export default function NewProduct() {
     } catch (err) {
       console.error(err)
       alert("Error ❌")
+    }finally{
+      setLoading(false)
     }
   }
 
@@ -93,8 +95,8 @@ export default function NewProduct() {
           <option value="electronics">Electronics</option>
         </select>
 
-        <button className={styles.SubmitBtn} type="submit">
-          Save New Product
+        <button className={styles.SubmitBtn} type="submit" disabled={loading}>
+          {loading? "Saving..." :"Save new product"}
         </button>
 
         <Link href={"/Products"} className={styles.back}><FaArrowLeft/> back</Link>

@@ -1,4 +1,5 @@
  .container {
+  position: relative;
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
@@ -12,6 +13,27 @@
   direction: rtl;
   height: 100%;
   border-left: 10px solid rgb(255, 228, 177);
+}
+
+.newBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 .container:hover {

@@ -116,7 +116,7 @@
 }
 
 .SubmitBtn:disabled {
-  background: #cbd5e1;
+  background: #08a800;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
