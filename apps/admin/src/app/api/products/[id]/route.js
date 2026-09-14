@@ -49,3 +49,30 @@ import { NextResponse } from "next/server";
     );
   }
 }
+export async function PUT(req, { params }) {
+  try {
+    await connectDB();
+    const { id } = await params;
+    const data = await req.json();
+
+    const product = await Product.findOne({ id: Number(id) });
+
+    if (!product) {
+      return NextResponse.json(
+        { error: "محصول پیدا نشد" },
+        { status: 404 }
+      );
+    }
+
+    Object.assign(product, data);
+    await product.save();
+
+    return NextResponse.json(product);   
+  } catch (error) {
+    console.error(" PUT error:", error.message);
+    return NextResponse.json(
+      { error: error.message },
+      { status: 500 }
+    );
+  }
+}
