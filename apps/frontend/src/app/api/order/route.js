@@ -7,12 +7,14 @@ export async function POST(request ) {
     await connectDB() ;
 
     const {user  , cart , totalprice , paymentMethod } = await request.json()
+    const status = paymentMethod === "online" ? "success" : "pending"
 
     const newOreder = new Order({ 
         user  , 
         cart , 
         totalprice ,
-        paymentMethod     
+        paymentMethod ,
+        status  
     })
 
      await newOreder.save()

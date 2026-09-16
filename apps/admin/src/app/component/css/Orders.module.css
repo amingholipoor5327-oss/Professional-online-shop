@@ -1,0 +1,310 @@
+ .Container {
+  padding: 30px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+ .Head {
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e2e8f0;
+ }
+
+.Title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+ 
+}
+
+.TableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.Table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  min-width: 900px;
+}
+
+.Table thead {
+  background: #1e293b;
+}
+
+.Table th {
+  padding: 14px 16px;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.Table tbody tr {
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.Table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.Table tbody tr:hover {
+  background: #f5fafc;
+}
+
+.Table td {
+  padding: 14px 16px;
+  color: #334155;
+  font-size: 14px;
+   vertical-align: middle;
+}
+.Table td a.more{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+ }
+ 
+ .Table td a.more:hover{
+  color: #1d4ed8;
+  text-decoration: underline;
+  transform: translateX(-3px);
+ }
+
+.Table td.address {
+  max-width: 200px;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.Table td.price {
+  font-weight: 700;
+  color: #16a34a;
+  white-space: nowrap;
+}
+
+.Table td.date {
+  color: #64748b;
+  font-size: 13px;
+  white-space: nowrap;
+}
+ .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+ .success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+ .failed {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+ .cancelled {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+ .shipped {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+ .delivered {
+  background: #bbf7d0;
+  color: #14532d;
+}
+ 
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.productItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #f8fafc;
+  border-radius: 6px;
+  font-size: 12px;
+  }
+
+.productTitle {
+  color: #334155;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 130px;
+}
+
+.productCount {
+  color: #2563eb;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+ .Empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
+  font-size: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+ .Error {
+  padding: 20px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  color: #dc2626;
+  text-align: center;
+  font-size: 15px;
+}
+.newBadge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: linear-gradient(135deg, #c27c03, #ff0000);
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.6);
+  }
+}
+@media (max-width: 1024px) {
+  .Container {
+    padding: 24px 20px;
+  }
+
+  .Title {
+    font-size: 22px;
+  }
+
+  .Table th,
+  .Table td {
+    padding: 12px 12px;
+    font-size: 13px;
+  }
+}
+
+ @media (max-width: 768px) {
+  .Container {
+    padding: 20px 15px;
+  }
+
+  .Title {
+    font-size: 20px;
+  }
+
+  .Table {
+    min-width: 800px;
+  }
+
+  .Table th,
+  .Table td {
+    padding: 10px 10px;
+    font-size: 12px;
+  }
+
+  .productTitle {
+    max-width: 100px;
+  }
+
+  .address {
+    max-width: 150px;
+    font-size: 12px;
+  }
+}
+
+ @media (max-width: 500px) {
+  .Container {
+    padding: 15px 10px;
+  }
+
+  .Title {
+    font-size: 18px;
+  }
+
+  .TableWrapper {
+    border-radius: 8px;
+  }
+
+  .Table th {
+    font-size: 11px;
+    padding: 10px 8px;
+  }
+
+  .Table td {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .badge {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+
+  .productItem {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .productTitle {
+    max-width: 80px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+}

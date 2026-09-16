@@ -22,7 +22,7 @@ export default async function Products() {
     console.error("Fetch error:", error)
     return (
       <div className={styles.Container}>
-        <p className={styles.Error}>خطا در دریافت محصولات ❌</p>
+        <p className={styles.Error}> Error in the fetch product ❌</p>
       </div>
     )
   }
@@ -31,12 +31,12 @@ export default async function Products() {
   return (
     <div className={styles.Container}> 
     <div className={styles.Head}>
+      <h1 className={styles.Title}>Product List</h1>
     <Link href={"/Products/new"} className={styles.new}>add new product</Link>
-      <h1 className={styles.Title}>لیست محصولات</h1>
      </div>
       
       {res.length === 0 ? (
-        <p className={styles.Empty}>هنوز محصولی ثبت نشده 📦</p>
+        <p className={styles.Empty}>No resived products</p>
       ) : (
         <table className={styles.Table}>
           <thead>

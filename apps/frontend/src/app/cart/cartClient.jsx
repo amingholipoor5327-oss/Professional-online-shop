@@ -9,6 +9,7 @@ export default function CartClient({ product }) {
   const [isAdded, setIsAdded] = useState(false);
   const { addcart} = useContext(Cartcontext)
 
+  const priceInToman = Math.round(product.price * 85000).toLocaleString("fa-IR");
   return (
     <div className={styles.container}>
       <div className={styles.card}>
@@ -27,7 +28,7 @@ export default function CartClient({ product }) {
             </Link> 
 
 
-          <p className={styles.price}>${product.price}</p>
+          <p className={styles.price}>تومان{priceInToman}</p>
           <p className={styles.description}>{product.description}</p>
           <div className={styles.rating}>
             ⭐ {product.rating?.rate} ({product.rating?.count} نظر)

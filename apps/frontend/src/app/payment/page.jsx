@@ -205,7 +205,7 @@ export default function Payment() {
                         disabled={!isFormValid() || issubmit}
                     >
                         {issubmit ? (
-                            " سفارش شما ثبت شد!"
+                            "در حال پردازش..."
                         ) : isFormValid() ? (
                             " ثبت سفارش"
                         ) : (
