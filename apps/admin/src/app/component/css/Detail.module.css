@@ -1,0 +1,167 @@
+ .Container {
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+ .backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  transform: translateX(-3px);
+}
+
+ .Card {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+ .ImageWrapper {
+  flex: 0 0 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  padding: 40px;
+  border-left: 10px solid #1e293b;
+  border-radius: 20px 0px 0px 20px ;
+}
+
+.Image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+}
+
+ .Details {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.Title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.Category {
+  align-self: flex-start;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0284c7;
+  background: #e0f2fe;
+  border-radius: 20px;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
+}
+ 
+.Price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #16a34a;
+  margin: 0;
+}
+
+.Description {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.Rating {
+  font-size: 14px;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+ .Actions {
+  margin-top: 16px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+ .Error {
+  padding: 20px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  color: #dc2626;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+ 
+@media (max-width: 768px) {
+  .Container {
+    padding: 20px 15px;
+  }
+
+  .Card {
+    flex-direction: column;
+  }
+
+  .ImageWrapper {
+    flex: none;
+    padding: 30px;
+    border-radius: 20px 0px 0px 10px ;
+  }
+
+  .Details {
+    padding: 24px;
+  }
+
+  .Title {
+    font-size: 20px;
+  }
+
+  .Price {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .Container {
+    padding: 15px 10px;
+  }
+
+  .Details {
+    padding: 20px 16px;
+  }
+
+  .Title {
+    font-size: 18px;
+  }
+
+  .Price {
+    font-size: 22px;
+  }
+}

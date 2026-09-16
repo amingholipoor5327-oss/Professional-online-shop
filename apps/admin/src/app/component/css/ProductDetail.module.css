@@ -1,0 +1,222 @@
+ .Container {
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+ .backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  transform: translateX(-3px);
+}
+
+ .Card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.Title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+ .Section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border-right: 4px solid #38bdf8;
+}
+
+.Section h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+.Section p {
+  font-size: 14px;
+  color: #334155;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.Section p strong {
+  color: #1e293b;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+ .productItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.productItem:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 10px rgba(56, 189, 248, 0.2);
+}
+
+.productItem img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.productItem div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.productItem h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.productItem:hover h3 {
+  color: #0284c7;
+}
+
+.productItem p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+}
+
+.productItem p:last-child {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+ .Error {
+  padding: 20px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  color: #dc2626;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .Container {
+    padding: 20px 15px;
+  }
+
+  .Card {
+    padding: 24px 20px;
+  }
+
+  .Title {
+    font-size: 20px;
+  }
+
+  .Section {
+    padding: 16px;
+  }
+
+  .Section h2 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .Container {
+    padding: 15px 10px;
+  }
+
+  .Card {
+    padding: 18px 14px;
+    border-radius: 12px;
+  }
+
+  .Title {
+    font-size: 18px;
+    padding-bottom: 12px;
+  }
+
+  .Section {
+    padding: 14px 12px;
+  }
+
+  .Section p {
+    font-size: 13px;
+  }
+
+  .productItem {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .productItem img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .productItem h3 {
+    font-size: 13px;
+  }
+
+  .productItem p {
+    font-size: 11px;
+  }
+
+  .backBtn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
