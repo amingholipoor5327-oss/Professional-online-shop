@@ -14,7 +14,7 @@ export async function generateMetadata() {
 export default async function Maincontent() {
    let mainproducts = []; 
   try{
-     let response = await fetch("http://localhost:3000/api/products");
+     let response = await fetch("https://professional-online-shop.vercel.app/api/products");
     let products = await response.json();
 
     let firstporoduct = products.slice(0,3)
