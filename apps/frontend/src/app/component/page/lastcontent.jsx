@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "../css/Lastcontent.module.css";
 import { useContext, useState } from "react";
 import { Cartcontext } from "../../context/context";
+import Image from "next/image";
 
 export default function LastContent({ product }) {
     const [isAdded, setIsAdded] = useState(false);
@@ -26,16 +27,17 @@ export default function LastContent({ product }) {
             setIsAdded(false);
         }, 2000);
     }
-console.log("IMAGE:", product.image);
-    return (
+     return (
         <div className={styles.container}>
 
              <Link href={`/cart/${product.id}`}>
                 <div className={styles.imageWrapper}>
-                    <img
+                    <Image
                         src={product.image}
                         alt={product.title}
                         className={styles.image}
+                        width={200}
+                        height={200}
                     />
                 </div>
             </Link>

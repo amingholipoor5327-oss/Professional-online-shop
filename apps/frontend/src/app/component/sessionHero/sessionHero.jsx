@@ -1,10 +1,17 @@
 import Link from "next/link";
 import styles from "../css/Hero.module.css";
+import Image from "next/image";
 export default function Hero(){
     return(
         <div className={styles.container}>
             <div className={styles.image}>
-                <img src="/images/images.png" alt="Amin-compani"></img>
+                <Image 
+                src="/images/images.png"
+                 alt="Amin-compani"
+                 width={200}
+                 height={200}
+                 className={styles.img}
+                 /> 
             </div>
             <div className={styles.hero}>
                 <h1>اکادمی امین قلی پور</h1>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "../component/css/Lastcontent.module.css";
 import { useContext, useState } from "react";
 import { Cartcontext } from "../context/context";
-
+import Image from "next/image";
 
 function isNew(createdAt) {
   if (!createdAt) return false
@@ -40,10 +40,12 @@ export default function Storecontent({product}) {
          )}
              <Link href={`/cart/${product.id}`}>
                 <div className={styles.imageWrapper}>
-                    <img
+                    <Image
                         src={product.image}
                         alt={product.title}
                         className={styles.image}
+                        width={200}
+                        height={200}
                     />
                 </div>
             </Link>

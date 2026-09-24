@@ -28,11 +28,11 @@
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
-.image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.image .img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
 }
 
  .hero {
