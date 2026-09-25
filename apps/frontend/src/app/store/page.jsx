@@ -11,7 +11,7 @@ export async function generateMetadata() {
 export default async function Store() {
   let products = [] ; 
   try{
-     let response = await fetch("https://professional-online-shop.vercel.app/api/products");
+     let response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`);
      if(!response.ok){
        throw Error("محصولات از سرور دریافت نشد ")
       }

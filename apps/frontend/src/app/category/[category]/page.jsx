@@ -5,7 +5,7 @@ export default async function Categorypage({params}){
     const {category} = await params
     const decodecategory = decodeURIComponent(category)
 
-    const response = await fetch("https://professional-online-shop.vercel.app/api/products")
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`)
 
     if(!response.ok){
         throw new Error("خطا در دریافت اطلاعات محصولات")

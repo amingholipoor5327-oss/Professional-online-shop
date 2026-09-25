@@ -51,7 +51,7 @@ export default function Payment() {
         }
          try{
 
-            const request = await fetch("/api/order", {
+            const request = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/order`, {
                 method : "POST" , 
                 headers : {"Content-Type" : "application/json"} , 
                 body : JSON.stringify(Orderdata)
