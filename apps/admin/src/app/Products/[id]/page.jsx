@@ -20,7 +20,7 @@ export default async function Detail({ params }) {
     return (
       <div className={styles.Container}>
         <p className={styles.Error}>Product not found ❌</p>
-        <Link href="/store" className={styles.backBtn}>
+        <Link href="/Order" className={styles.backBtn}>
           <FaArrowLeft /> Back to Store
         </Link>
       </div>

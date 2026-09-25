@@ -1,4 +1,5 @@
 import Middlestore from "./middlestore";
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
   return {
@@ -10,7 +11,7 @@ export async function generateMetadata() {
 export default async function Store() {
   let products = [] ; 
   try{
-     let response = await fetch("http://localhost:3000/api/products");
+     let response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`);
      if(!response.ok){
        throw Error("محصولات از سرور دریافت نشد ")
       }
