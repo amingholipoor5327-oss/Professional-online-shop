@@ -1,212 +1,333 @@
- .container {
-    width: 100%;
-    min-height: 70px;
-    display: flex;
-    margin-top: 2px;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
-    background: linear-gradient(
-        135deg,
-        #1a1a2e,
-        #16213e,
-        #0f3460
+.container {
+  width: 100%;
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem 2rem;
+  margin-top: 2px;
+
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(124, 58, 237, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(6, 182, 212, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #070b17,
+      #0f172a,
+      #111827
     );
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    direction: rtl;
-    position: relative;
-    z-index: 100;
-    position: sticky;
-    top: 0;
-    transition: all 0.6s ease;
+
+  box-shadow:
+    0 5px 25px rgba(0, 0, 0, 0.3);
+
+  direction: rtl;
+  position: fixed;
+  top: -3;
+  left: 0;
+  z-index: 100;
+  border-bottom: 1px solid #1e293b;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .store {
-    position: absolute;
-    right: 30px;
-    font-size: 20px;
-    font-family: Vazir, sans-serif;
-    font-weight: 700;
-    color: orange;
-    white-space: nowrap;
+  position: absolute;
+  right: 30px;
+  font-size: 20px;
+  font-family: Vazir, sans-serif;
+  font-weight: 800;
+  white-space: nowrap;
+  background: linear-gradient(
+    90deg,
+    #a78bfa,
+    #22d3ee
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+  transition: 0.3s ease;
+}
+
+.store:hover {
+  filter: drop-shadow(
+    0 0 10px rgba(124, 58, 237, 0.4)
+  );
 }
 
 .nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 45px;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  margin: 0;
 }
 
 .cartLink {
-    display: inline-block;
-    text-decoration: none;
-    color: #f1c40f;
-    font-size: 16px;
-    font-weight: 500;
-    transition:
-        color 0.3s ease,
-        transform 0.3s ease;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 7px 4px;
+  transition: all 0.3s ease;
+}
+
+.cartLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  width: 0;
+  height: 2px;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #06b6d4
+  );
+  transform: translateX(50%);
+  transition: width 0.3s ease;
 }
 
 .cartLink:hover {
-    color: white;
-    transform: translateY(-3px);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
-.len { 
-    color: white;
-    position: absolute;
-    left: 36.2rem;
-    font-size: 10px;
-    background-color: red;
-    border-radius: 7px;
-    width: 14px;
-    height: 14px;
-    text-align: center;
-    top: 23px;
-
+.cartLink:hover::after {
+  width: 80%;
 }
+
+.cartWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.len {
+  position: absolute;
+  top: -5px;
+  right: 48px;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #ec4899,
+    #7c3aed
+  );
+
+  color: white;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
+  z-index: 2;
+  box-shadow:
+    0 3px 10px rgba(236, 72, 153, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 .menuToggle {
-    display: none;
-    position: absolute;
-    left: 20px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 110;
+  display: none;
+  position: absolute;
+  left: 20px;
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 110;
+  transition: 0.3s ease;
+}
+
+.menuToggle:hover {
+  color: #a78bfa;
+
+  transform: scale(1.08);
 }
 
 @media (max-width: 1024px) {
+  .store {
+    right: 20px;
+    font-size: 18px;
+  }
 
-    .store {
-        right: 20px;
-    }
+  .nav {
+    gap: 25px;
+  }
 
-    .nav {
-        gap: 25px;
-    }
-    .len{
-        left: 27.1rem;
-    }
-
-    .cartLink {
-        font-size: 15px;
-    }
+  .cartLink {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 768px) {
+  .container {
+    min-height: 65px;
+    padding: 0.8rem 1rem;
+    border-radius: 0;
+  }
 
-    .container {
-        min-height: 65px;
+  .store {
+    position: static;
+    margin: 0 auto;
+    font-size: 18px;
+  }
 
-        padding: 0.8rem 1rem;
-    }
+  .menuToggle {
+    display: block;
+    left: 20px;
+    font-size: 26px;
+  }
 
-    .store {
-        position: static;
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 10px;
+    background:
+      linear-gradient(
+        135deg,
+        #0b1220,
+        #111827
+      );
 
-        margin: 0 auto;
+    border-bottom: 1px solid #1e293b;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+    box-shadow:
+      0 12px 25px rgba(0, 0, 0, 0.3);
 
-        font-size: 18px;
-    }
-    .len { 
- 
-    left: 18.5rem; 
-}
+    transition:
+      max-height 0.45s ease,
+      opacity 0.3s ease,
+      transform 0.45s ease,
+      padding 0.45s ease;
+  }
 
-    .menuToggle {
-        display: block;
-    }
 
-    /* 
-       منوی موبایل
-       ابتدا مخفی است
-    */
+  .nav.active {
+    max-height: 100px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 15px 10px;
+    pointer-events: auto;
+  }
 
-    .nav {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 25px;
-        padding: 0 10px;
-        background: #16213e;
+  .cartLink {
+    width: auto;
+    padding: 8px 10px;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 8px;
+    font-size: 14px;
+  }
 
-        /*
-           وضعیت بسته
-        */
-        max-height:0;
-        opacity: 0;
-        overflow: hidden;
-        transform: translateY(-10px);
-        pointer-events: none;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        transition:
-            max-height 0.45s ease,
-            opacity 0.3s ease,
-            transform 0.45s ease,
-            padding 0.45s ease;
-    }
+  .cartLink::after {
+    display: none;
+  }
 
-    /*
-       وضعیت باز
-    */
+  .cartLink:hover {
+    background: rgba(124, 58, 237, 0.1);
+    color: #a78bfa;
+    transform: none;
+  }
 
-    .nav.active {
-        max-height: 100px;
-        opacity: 1;
-        transform: translateY(0);
-        padding: 15px 10px;
-        pointer-events: auto;
-    }
-
-    .cartLink {
-        width: auto;
-        padding: 8px 12px;
-        text-align: center;
-        white-space: nowrap;
-        border-radius: 8px;
-        font-size: 14px;
-    }
-
-    .cartLink:hover {
-        background: rgba(255, 255, 255, 0.08);
-        transform: none;
-    }
+  .len {
+    top: -3;
+    right: 48px;
+    width: 15px;
+    height: 15px;
+    font-size: 8px;
+  }
 }
  
 @media (max-width: 480px) {
+  .container {
+    min-height: 60px;
+    padding: 0.7rem 0.8rem;
+  }
 
-    .nav {
-        gap: 12px;
-    }
+  .store {
+    font-size: 16px;
+  }
 
-    .nav.active {
-        padding: 12px 5px;
-    }
+  .menuToggle {
+    left: 12px;
+    font-size: 23px;
+  }
 
-    .cartLink {
-        padding: 7px 8px;
+  .nav {
+    gap: 8px;
+    padding: 0 5px;
+  }
 
-        font-size: 13px;
-    }
+  .nav.active {
+    padding: 12px 5px;
+  }
 
-    .menuToggle {
-        left: 12px;
+  .cartLink {
+    padding: 7px;
+    font-size: 12px;
+  }
 
-        font-size: 23px;
-    }
-
-    .store {
-        font-size: 16px;
-    }
+  .len {
+    top: -3;
+    right: 39px;
+    width: 14px;
+    height: 14px;
+    font-size: 8px;
+  }
 }
  
+@media (max-width: 360px) {
+  .store {
+    font-size: 14px;
+  }
+
+  .menuToggle {
+    left: 10px;
+    font-size: 21px;
+  }
+
+  .nav {
+    gap: 4px;
+  }
+
+  .cartLink {
+    padding: 6px 5px;
+    font-size: 11px;
+  }
+
+  .len {
+    top: -3;
+    right: 39px;
+    width: 13px;
+    height: 13px;
+    font-size: 7px;
+  }
+}

@@ -37,25 +37,23 @@ export default function Header() {
                     فروشگاه
                 </Link>
 
-                <Link
-                    href="/Shop"
-                    className={styles.cartLink}
-                    onClick={() => setIsMenuOpen(false)}
-                >
-                    سبد خرید
-                   
-                </Link>
+                <div className={styles.cartWrapper}>
+                    <Link
+                        href="/Shop"
+                        className={styles.cartLink}
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        سبد خرید
+                    </Link>
 
-                {cart.length> 0 &&
-                <span className={styles.len}>
-                        {
-                            cart.length
-                     }
-                     </span>
-                } 
-
+                    {cart.length > 0 && (
+                        <span className={styles.len}>
+                            {cart.length}
+                        </span>
+                    )}
+                </div>
                 <Link
-                    href="/contact"
+                    href="/About"
                     className={styles.cartLink}
                     onClick={() => setIsMenuOpen(false)}
                 >

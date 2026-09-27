@@ -28,7 +28,7 @@ export default async function Maincontent() {
       <div>
      <h1
   style={{
-    color: "black",
+    color: "white",
     textAlign: "center",
     margin: "30px 0",
     fontSize: "2rem",

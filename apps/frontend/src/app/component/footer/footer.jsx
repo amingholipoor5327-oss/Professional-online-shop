@@ -6,9 +6,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
 
-        {/* معرفی فروشگاه */}
-        <div className={styles.section}>
-          <h3 className={styles.title}>Amin Style</h3>
+         <div className={styles.section}>
+          <h3 className={styles.title}>فروشگاه امین</h3>
 
           <p className={styles.description}>
             ارائه‌دهنده بهترین محصولات با کیفیت و قیمت مناسب.
