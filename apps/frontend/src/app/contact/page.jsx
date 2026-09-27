@@ -1,151 +1,258 @@
 "use client";
 
-import Link from "next/link";
-import styles from "../component/css/contact.module.css";
+import { useState } from "react";
+import styles from "../component/css/Contact.module.css";
 
 export default function Contact() {
-    return (
-        <main className={styles.container}>
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-             <section className={styles.hero}>
-                <div className={styles.heroContent}>
-                    <span className={styles.badge}>
-                        🔤Aminora
-                    </span>
+  const [submitted, setSubmitted] = useState(false);
 
-                    <h1>
-                        خریدی ساده، سریع و مطمئن
-                    </h1>
+  function handleChange(e) {
+    const { name, value } = e.target;
 
-                    <p>
-                        ما در Aminora تلاش می‌کنیم تجربه‌ای ساده و لذت‌بخش
-                        برای خرید آنلاین ایجاد کنیم؛ از پیدا کردن محصول موردنظر
-                        تا ثبت سفارش و پرداخت.
-                    </p>
-                </div>
-            </section>
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
 
+  function handleSubmit(e) {
+    e.preventDefault();
 
-             <section className={styles.about}>
-                <div className={styles.aboutText}>
+    setSubmitted(true);
 
-                    <h2>ما کی هستیم؟</h2>
+    setForm({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  }
 
-                    <p>
-                       Aminora یک فروشگاه آنلاین با هدف ارائه محصولات
-                        متنوع و ایجاد یک تجربه خرید آسان و مدرن است.
-                    </p>
+  return (
+    <main className={styles.container}>
 
-                    <p>
-                        در این فروشگاه می‌توانید محصولات مختلف را مشاهده کنید،
-                        آن‌ها را به سبد خرید اضافه کنید و پس از تکمیل اطلاعات
-                        سفارش، فرآیند خرید خود را انجام دهید.
-                    </p>
+       <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <span className={styles.badge}>✉️ ارتباط با ما</span>
 
-                    <p>
-                        هدف ما این است که مسیر خرید برای مشتری تا حد ممکن
-                        ساده، سریع و قابل اعتماد باشد.
-                    </p>
+          <h1>
+            با ما در <span>ارتباط باشید</span>
+          </h1>
 
-                </div>
-
-                <div className={styles.aboutCard}>
-                    <div className={styles.icon}>
-                        🛍️
-                    </div>
-
-                    <h3>Aminora</h3>
-
-                    <p>
-                        فروشگاهی برای یک تجربه خرید بهتر
-                    </p>
-                </div>
-            </section>
+          <p>
+            اگر سوالی درباره محصولات، سفارش یا نحوه استفاده از فروشگاه
+            دارید، می‌توانید از طریق فرم زیر با ما در ارتباط باشید.
+          </p>
+        </div>
+      </section>
 
 
-             <section className={styles.features}>
+       <section className={styles.contactSection}>
 
-                <h2>چرا Aminora؟</h2>
+         <div className={styles.info}>
 
-                <div className={styles.featureGrid}>
+          <span className={styles.sectionLabel}>
+            CONTACT US
+          </span>
 
-                    <div className={styles.feature}>
-                        <span>⚡</span>
-                        <h3>سریع و ساده</h3>
-                        <p>
-                            پیدا کردن محصول و ثبت سفارش در چند مرحله ساده.
-                        </p>
-                    </div>
+          <h2>
+            چطور می‌توانیم کمکتان کنیم؟
+          </h2>
 
-                    <div className={styles.feature}>
-                        <span>🛒</span>
-                        <h3>سبد خرید هوشمند</h3>
-                        <p>
-                            مدیریت محصولات و تعداد آن‌ها قبل از ثبت سفارش.
-                        </p>
-                    </div>
-
-                    <div className={styles.feature}>
-                        <span>💳</span>
-                        <h3>روش‌های پرداخت</h3>
-                        <p>
-                            امکان انتخاب روش پرداخت متناسب با سفارش شما.
-                        </p>
-                    </div>
-
-                    <div className={styles.feature}>
-                        <span>📦</span>
-                        <h3>ثبت سفارش</h3>
-                        <p>
-                            ثبت اطلاعات گیرنده و پیگیری فرآیند خرید.
-                        </p>
-                    </div>
-
-                </div>
-
-            </section>
+          <p className={styles.description}>
+            پیام خود را برای ما ارسال کنید. تلاش می‌کنیم در سریع‌ترین
+            زمان ممکن درخواست شما را بررسی کنیم.
+          </p>
 
 
-             <section className={styles.technology}>
+          <div className={styles.infoList}>
 
-                <h2>تکنولوژی‌های استفاده شده</h2>
+            <div className={styles.infoCard}>
+              <div className={styles.icon}>
+                📧
+              </div>
 
+              <div>
+                <h3>ایمیل</h3>
+                <p>amingholipour5327@gmail.com</p>
+              </div>
+            </div>
+
+
+            <div className={styles.infoCard}>
+              <div className={styles.icon}>
+                📱
+              </div>
+
+              <div>
+                <h3>تلفن</h3>
+                <p>09026815327</p>
+              </div>
+            </div>
+
+
+            <div className={styles.infoCard}>
+              <div className={styles.icon}>
+                🛍️
+              </div>
+
+              <div>
+                <h3>پشتیبانی فروشگاه</h3>
                 <p>
-                    این پروژه با استفاده از تکنولوژی‌های مدرن وب توسعه داده شده
-                    است.
+                  سوالی درباره سفارش خود دارید؟ با ما در ارتباط باشید.
                 </p>
+              </div>
+            </div>
 
-                <div className={styles.techList}>
-                    <span>React</span>
-                    <span>Next.js</span>
-                    <span>JavaScript</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>REST API</span>
-                </div>
-
-            </section>
+          </div>
+        </div>
 
 
-             <section className={styles.cta}>
+         <div className={styles.formCard}>
 
-                <h2>
-                    آماده خرید هستید؟
-                </h2>
+          <h2>ارسال پیام</h2>
 
-                <p>
-                    محصولات فروشگاه را مشاهده کنید و خرید خود را شروع کنید.
-                </p>
+          <p>
+            فرم زیر را تکمیل کنید.
+          </p>
 
-                <Link
-                    href="/store"
-                    className={styles.button}
-                >
-                    مشاهده فروشگاه
-                </Link>
+          {submitted && (
+            <div className={styles.success}>
+              ✅ پیام شما با موفقیت ارسال شد.
+            </div>
+          )}
 
-            </section>
+          <form onSubmit={handleSubmit}>
 
-        </main>
-    );
+            <div className={styles.formGrid}>
+
+              <div className={styles.field}>
+                <label>نام و نام خانوادگی</label>
+
+                <input
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="نام خود را وارد کنید"
+                  required
+                />
+              </div>
+
+
+              <div className={styles.field}>
+                <label>ایمیل</label>
+
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="example@gmail.com"
+                  required
+                />
+              </div>
+
+            </div>
+
+
+            <div className={styles.field}>
+              <label>موضوع</label>
+
+              <input
+                type="text"
+                name="subject"
+                value={form.subject}
+                onChange={handleChange}
+                placeholder="موضوع پیام"
+                required
+              />
+            </div>
+
+
+            <div className={styles.field}>
+              <label>پیام شما</label>
+
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="پیام خود را بنویسید..."
+                rows="6"
+                required
+              />
+            </div>
+
+
+            <button
+              type="submit"
+              className={styles.submitButton}
+            >
+              ارسال پیام
+            </button>
+
+          </form>
+        </div>
+
+      </section>
+
+
+       <section className={styles.faq}>
+
+        <span className={styles.sectionLabel}>
+          FAQ
+        </span>
+
+        <h2>سوالات متداول</h2>
+
+        <div className={styles.faqGrid}>
+
+          <div className={styles.faqItem}>
+            <h3>چطور سفارش خودم را ثبت کنم؟</h3>
+            <p>
+              محصول موردنظر را به سبد خرید اضافه کنید و پس از تکمیل
+              اطلاعات، سفارش خود را ثبت کنید.
+            </p>
+          </div>
+
+
+          <div className={styles.faqItem}>
+            <h3>آیا امکان پرداخت در محل وجود دارد؟</h3>
+            <p>
+              در صورت فعال بودن این گزینه، می‌توانید هنگام ثبت سفارش
+              روش پرداخت در محل را انتخاب کنید.
+            </p>
+          </div>
+
+
+          <div className={styles.faqItem}>
+            <h3>چطور با پشتیبانی تماس بگیرم؟</h3>
+            <p>
+              می‌توانید از طریق اطلاعات تماس یا فرم همین صفحه پیام
+              خود را برای ما ارسال کنید.
+            </p>
+          </div>
+
+
+          <div className={styles.faqItem}>
+            <h3>آیا می‌توانم درباره محصولات سوال بپرسم؟</h3>
+            <p>
+              بله، سوال خود درباره محصولات را از طریق فرم تماس برای
+              ما ارسال کنید.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+  );
 }

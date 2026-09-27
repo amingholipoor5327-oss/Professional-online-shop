@@ -9,13 +9,15 @@ export default function CartClient({ product }) {
   const [isAdded, setIsAdded] = useState(false);
   const { addcart} = useContext(Cartcontext)
 
-  const priceInToman = Math.round(product.price * 85000).toLocaleString("fa-IR");
+  const priceInToman = Math.round(product.price * 85000).toLocaleString("en-US");
   return (
+    
     <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.imageWrapper}>
           <img src={product.image} alt={product.title} />
         </div>
+
         <div className={styles.details}>
           <h1 className={styles.title}>{product.title}</h1>
 
@@ -28,7 +30,7 @@ export default function CartClient({ product }) {
             </Link> 
 
 
-          <p className={styles.price}>تومان{priceInToman}</p>
+          <p className={styles.price}>{priceInToman} Toman</p>
           <p className={styles.description}>{product.description}</p>
           <div className={styles.rating}>
             ⭐ {product.rating?.rate} ({product.rating?.count} نظر)

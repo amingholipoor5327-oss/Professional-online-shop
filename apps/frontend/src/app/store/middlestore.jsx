@@ -1,4 +1,4 @@
-import styles from "../component/css/middle.module.css";
+import styles from "../component/css/middleStore.module.css";
 import Storecontent from "./storecontent";
  
 export default function Middlestore({ product }) {
