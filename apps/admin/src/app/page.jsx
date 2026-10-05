@@ -1,19 +1,15 @@
+import UserProfile from "./component/UserProfile/UserProfile";
+
  
-export  async function generateMetadata({ }){
-    return{
-        title: "Home/your online cart",
-        description:  "this is a amagzing page for browzer online shop " , 
+export const metadata = {
+  title: "Amin Shop | Home",
+  description: "Welcome to Amin Shop",
+};
 
-        openGraph:{
-           title: "Home/your online cart",
-        description:  "this is a amagzing page for browzer online shop " ,   
-
-        }
-    }
-}
 export default function Home() {
   return (
-    <div>
-    </div>
+    <main>
+      <UserProfile />
+    </main>
   );
 }
