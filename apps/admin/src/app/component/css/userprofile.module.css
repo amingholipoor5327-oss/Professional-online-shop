@@ -1,0 +1,315 @@
+.Card {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 28px;
+  box-sizing: border-box;
+  color: #e5edff;
+  background:
+    radial-gradient(
+      ellipse at 100% 0%,
+      #17234a 0%,
+      transparent 35%
+    ),
+    linear-gradient(145deg, #101b31, #0d1629);
+
+  border: 1px solid #233452;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgb(0 0 0 / 25%);
+}
+
+.ProfileHeader {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #1e2b45;
+}
+
+.AvatarWrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.Avatar {
+  width: 115px;
+  height: 115px;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7766ff,
+      #4534c9
+    );
+
+  border: 4px solid #293b60;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 5px #101c34,
+    0 12px 30px rgb(0 0 0 / 30%);
+
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.Avatar img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.Online {
+  position: absolute;
+  right: 4px;
+  bottom: 7px;
+  width: 18px;
+  height: 18px;
+  background: #20d49a;
+  border: 4px solid #101b31;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px rgb(32 212 154 / 45%);
+}
+
+.UserInfo {
+  min-width: 0;
+}
+
+.NameRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.NameRow h2 {
+  margin: 0;
+  color: #f4f7ff;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.UserInfo > p {
+  margin: 9px 0 14px;
+
+  color: #9db0d2;
+
+  font-size: 13px;
+}
+
+.Active {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  color: #31d5a0;
+  background: rgb(34 201 147 / 13%);
+  border: 1px solid rgb(34 201 147 / 20%);
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.Active svg {
+  font-size: 10px;
+}
+
+.Role {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #a9bad9;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.Role svg {
+  color: #9185ff;
+}
+
+.Details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding-top: 25px;
+}
+
+.Detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  background: #101c34;
+  border: 1px solid #293b60;
+  border-radius: 13px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.Detail:hover {
+  transform: translateY(-3px);
+  background: #14213b;
+  border-color: #5866a0;
+}
+
+.Detail > svg {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  padding: 11px;
+  box-sizing: border-box;
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6458ff,
+      #4934db
+    );
+
+  border-radius: 11px;
+}
+
+.Detail div {
+  min-width: 0;
+}
+
+.Detail small {
+  display: block;
+  margin-bottom: 5px;
+  color: #8091b3;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.Detail strong {
+  display: block;
+  min-width: 0;
+  color: #dbe5fa;
+  font-size: 13px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Loading {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 60px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9db0d2;
+
+  background:
+    linear-gradient(
+      145deg,
+      #101b31,
+      #0d1629
+    );
+
+  border: 1px solid #233452;
+  border-radius: 18px;
+}
+
+@media (max-width: 850px) {
+  .Card {
+    margin: 30px auto;
+    padding: 24px;
+  }
+
+  .Details {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .Card {
+    margin: 20px auto;
+
+    padding: 20px;
+
+    border-radius: 15px;
+  }
+
+  .ProfileHeader {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  .Avatar {
+    width: 100px;
+    height: 100px;
+
+    font-size: 35px;
+  }
+
+  .NameRow h2 {
+    font-size: 23px;
+  }
+
+  .UserInfo > p {
+    font-size: 12px;
+  }
+
+  .Details {
+    gap: 11px;
+
+    padding-top: 20px;
+  }
+
+  .Detail {
+    padding: 14px;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .Card {
+    padding: 16px;
+  }
+
+  .Avatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .NameRow {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .Detail > svg {
+    width: 38px;
+    height: 38px;
+
+    padding: 10px;
+  }
+}
