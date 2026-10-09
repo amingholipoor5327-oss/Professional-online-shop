@@ -65,9 +65,14 @@ function totalprice() {
 }
 
 function deletecart(product) {
-    setCart((prev) =>
-        prev.filter((item) => item.id !== product.id)
-    );
+    const exists = cart.some((item) => item.id === product.id);
+
+    if (!exists) {
+        return false;
+    }
+
+    setCart((prev) => prev.filter((item) => item.id !== product.id));
+    return true;
 }
 
 function clearcart() {
