@@ -2,18 +2,13 @@
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/auth";
 
-import {
-  COOKIE_NAME,
-  SESSION_DURATION,
-  createSessionToken,
-} from "@/lib/auth";
+import { COOKIE_NAME, SESSION_DURATION, createSessionToken,} from "@/lib/auth";
 
 export const runtime = "nodejs";
 
 export async function GET(request) {
   try {
-    // دریافت نشست کاربر از NextAuth نسخه 4
-    const session = await getServerSession(authOptions);
+     const session = await getServerSession(authOptions);
 
     const adminEmail = process.env.ADMIN_EMAIL
       ?.trim()
@@ -23,8 +18,7 @@ export async function GET(request) {
       ?.trim()
       .toLowerCase();
 
-    // فقط ادمین مجاز به ورود است
-    if (
+     if (
       !adminEmail ||
       !googleEmail ||
       googleEmail !== adminEmail
@@ -34,8 +28,7 @@ export async function GET(request) {
       );
     }
 
-    // ایجاد توکن نشست سیستم فعلی پنل
-    const token = createSessionToken(adminEmail);
+     const token = createSessionToken(adminEmail);
 
     const response = NextResponse.redirect(
       new URL("/dashboard", request.url)

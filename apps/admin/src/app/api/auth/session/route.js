@@ -2,17 +2,13 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/auth";
 
-import {
-  COOKIE_NAME,
-  verifySessionToken,
-} from "@/lib/auth";
+import { COOKIE_NAME,verifySessionToken,} from "@/lib/auth";
 
 export const runtime = "nodejs";
 
 export async function GET(request) {
   try {
-    // بررسی Session اختصاصی پنل
-    const token = request.cookies.get(COOKIE_NAME)?.value;
+     const token = request.cookies.get(COOKIE_NAME)?.value;
     const customSession = verifySessionToken(token);
 
     if (!customSession) {
@@ -26,8 +22,7 @@ export async function GET(request) {
       );
     }
 
-    // بررسی ایمیل ادمین
-    const adminEmail = process.env.ADMIN_EMAIL
+     const adminEmail = process.env.ADMIN_EMAIL
       ?.trim()
       .toLowerCase();
 
@@ -45,8 +40,7 @@ export async function GET(request) {
       );
     }
 
-    // دریافت اطلاعات پروفایل از NextAuth
-    const nextAuthSession = await getServerSession(authOptions);
+     const nextAuthSession = await getServerSession(authOptions);
 
     const googleUser = nextAuthSession?.user;
 

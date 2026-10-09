@@ -2,10 +2,7 @@
 import Product from "@/models/Product";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import {
-  COOKIE_NAME,
-  verifySessionToken,
-} from "@/lib/auth";
+import { COOKIE_NAME,verifySessionToken,} from "@/lib/auth";
 
 async function isAdminAuthenticated() {
   const cookieStore = await cookies();
@@ -100,7 +97,6 @@ export async function PUT(req, { params }) {
       );
     }
 
-    // اجازه تغییر شناسه محصول از طریق درخواست را نده
     delete data.id;
     delete data._id;
 

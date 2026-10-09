@@ -1,0 +1,519 @@
+.Container {
+  --settings-accent: var(--primary, #8b5cf6);
+  --settings-accent-hover: #7c3aed;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px;
+  color: var(--foreground, #f1f5f9);
+  background: var(--background, #0b1224);
+  overflow-x: hidden;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.PageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.Eyebrow {
+  color: var(--settings-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.PageHeader h1 {
+  margin: 9px 0;
+  color: var(--foreground, #f1f5f9);
+  font-size: 30px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.PageHeader p,
+.SectionHeader p {
+  margin: 0;
+  color: var(--muted, #929db5);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.HeaderIcon,
+.SectionIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--settings-accent);
+  background: var(--surface-secondary, #252044);
+  border: 1px solid var(--border, #39305f);
+}
+
+.HeaderIcon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  font-size: 23px;
+}
+
+.SettingsCard {
+  min-width: 0;
+  margin-bottom: 20px;
+  padding: 24px;
+  border: 1px solid var(--border, #27334b);
+  border-radius: 17px;
+  background: var(--surface, #111a2e);
+  color: var(--foreground, #f1f5f9);
+  overflow-wrap: anywhere;
+  box-shadow: var(--shadow, none);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.SettingsCard:hover {
+  border-color: var(--settings-accent);
+}
+
+.SectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.SectionIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 17px;
+}
+
+.SectionHeader h2 {
+  margin: 0 0 6px;
+  color: var(--foreground, #f1f5f9);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.FieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.Field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Field > span {
+  color: var(--foreground, #d6dbea);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.Field input,
+.Field select,
+.Field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border, #303d57);
+  border-radius: 10px;
+  outline: none;
+  background: var(--input-background, #0c1427);
+  color: var(--foreground, #f1f5f9);
+  font: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.Field input,
+.Field select {
+  min-height: 45px;
+  padding: 0 13px;
+}
+
+.Field textarea {
+  min-height: 90px;
+  padding: 12px 13px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.Field input:focus,
+.Field select:focus,
+.Field textarea:focus {
+  border-color: var(--settings-accent);
+  box-shadow: 0 0 0 3px rgb(139 92 246 / 13%);
+}
+
+.Field input::placeholder,
+.Field textarea::placeholder {
+  color: var(--muted, #65718b);
+  opacity: 0.85;
+}
+
+.Field select option {
+  background: var(--surface, #111a2e);
+  color: var(--foreground, #f1f5f9);
+}
+
+.Field input:disabled,
+.Field select:disabled,
+.Field textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.SecurityNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-top: 20px;
+  padding: 14px;
+  border: 1px solid var(--border, #303052);
+  border-radius: 10px;
+  background: var(--surface-secondary, #191a32);
+  color: var(--settings-accent);
+}
+
+.SecurityNote svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.SecurityNote p {
+  margin: 0;
+  color: var(--muted, #b8bfd1);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.OptionsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.ToggleRow {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border, #27334b);
+  cursor: pointer;
+}
+
+.ToggleRow:last-child {
+  border-bottom: 0;
+}
+
+.ToggleRow > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ToggleRow strong {
+  color: var(--foreground, #e8ecf7);
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.ToggleRow small {
+  color: var(--muted, #8f9ab2);
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.ToggleRow input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--settings-accent);
+  cursor: pointer;
+}
+
+.ToggleRow input:focus-visible {
+  outline: 2px solid var(--settings-accent);
+  outline-offset: 3px;
+}
+
+.Hint {
+  margin: 12px 0 0;
+  color: var(--muted, #8290aa);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.Message {
+  margin: 16px 0;
+  padding: 13px 16px;
+  border: 1px solid #25836a;
+  border-radius: 10px;
+  background: #102b2a;
+  color: #8de8c6;
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.Message[role="alert"] {
+  border-color: #b94b63;
+  background: #301a28;
+  color: #ffb4c0;
+}
+
+.Message[role="status"] {
+  border-color: #25836a;
+  background: #102b2a;
+  color: #8de8c6;
+}
+
+.FormActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.SaveButton,
+.ResetButton {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 18px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.SaveButton:hover,
+.ResetButton:hover {
+  transform: translateY(-1px);
+}
+
+.SaveButton {
+  border: 1px solid var(--settings-accent);
+  background: var(--settings-accent);
+  color: #fff;
+}
+
+.SaveButton:hover {
+  background: var(--settings-accent-hover);
+}
+
+.ResetButton {
+  border: 1px solid var(--border, #35415a);
+  background: var(--surface-secondary, #172137);
+  color: var(--foreground, #d2d9e8);
+}
+
+.ResetButton:hover {
+  border-color: var(--settings-accent);
+}
+
+.SaveButton:disabled,
+.ResetButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.FormActions button:focus-visible,
+.ResetButton:focus-visible,
+.SaveButton:focus-visible {
+  outline: 2px solid var(--settings-accent);
+  outline-offset: 3px;
+}
+
+.Loading {
+  padding: 30px;
+  color: var(--muted, #aab1c5);
+  text-align: center;
+  font-size: 14px;
+}
+
+:global(html[dir="rtl"]) .Container {
+  text-align: right;
+}
+
+:global(html[dir="rtl"]) .Eyebrow {
+  letter-spacing: 0;
+}
+
+:global(html[dir="rtl"]) .SectionHeader,
+:global(html[dir="rtl"]) .ToggleRow {
+  direction: rtl;
+}
+
+:global(html[dir="rtl"]) .Field input,
+:global(html[dir="rtl"]) .Field select,
+:global(html[dir="rtl"]) .Field textarea {
+  text-align: right;
+}
+
+:global(html[dir="rtl"]) .FormActions {
+  direction: rtl;
+}
+
+:global(html[data-compact="true"]) .SettingsCard {
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+:global(html[data-compact="true"]) .SectionHeader {
+  margin-bottom: 16px;
+}
+
+:global(html[data-compact="true"]) .FieldsGrid {
+  gap: 14px;
+}
+
+:global(html[data-compact="true"]) .ToggleRow {
+  padding: 10px 0;
+}
+
+@media (max-width: 900px) {
+  .Container {
+    padding: 22px;
+  }
+
+  .FieldsGrid {
+    gap: 18px;
+  }
+
+  .SettingsCard {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .Container {
+    padding: 18px 14px;
+  }
+
+  .PageHeader {
+    align-items: flex-start;
+  }
+
+  .PageHeader h1 {
+    font-size: 25px;
+  }
+
+  .PageHeader p {
+    font-size: 12px;
+  }
+
+  .HeaderIcon {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    font-size: 20px;
+  }
+
+  .SettingsCard {
+    padding: 18px 15px;
+    border-radius: 14px;
+  }
+
+  .FieldsGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .SectionHeader {
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .SectionIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .SectionHeader h2 {
+    font-size: 15px;
+  }
+
+  .FormActions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .SaveButton,
+  .ResetButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .Container {
+    padding: 14px 10px;
+  }
+
+  .PageHeader {
+    gap: 10px;
+  }
+
+  .PageHeader h1 {
+    font-size: 22px;
+  }
+
+  .HeaderIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+
+  .SettingsCard {
+    padding: 15px 12px;
+  }
+
+  .SectionHeader {
+    gap: 9px;
+  }
+
+  .ToggleRow {
+    gap: 12px;
+  }
+
+  .Field input,
+  .Field select {
+    font-size: 12px;
+  }
+}

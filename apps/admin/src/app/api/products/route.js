@@ -1,10 +1,7 @@
  import { connectDB } from "@/lib/mongodb";
 import Product from "@/models/Product";
 import { cookies } from "next/headers";
-import {
-  COOKIE_NAME,
-  verifySessionToken,
-} from "@/lib/auth";
+import { COOKIE_NAME, verifySessionToken,} from "@/lib/auth";
 
 async function isAdminAuthenticated() {
   const cookieStore = await cookies();

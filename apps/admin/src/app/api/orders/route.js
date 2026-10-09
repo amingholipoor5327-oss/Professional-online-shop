@@ -2,10 +2,7 @@
 import { connectDB } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import {
-  COOKIE_NAME,
-  verifySessionToken,
-} from "@/lib/auth";
+import { COOKIE_NAME, verifySessionToken,} from "@/lib/auth";
 
 async function isAdminAuthenticated() {
   const cookieStore = await cookies();
@@ -16,8 +13,7 @@ async function isAdminAuthenticated() {
 
 export async function GET() {
   try {
-    // بررسی ورود ادمین
-    if (!(await isAdminAuthenticated())) {
+     if (!(await isAdminAuthenticated())) {
       return NextResponse.json(
         { error: "دسترسی غیرمجاز است." },
         { status: 401 }

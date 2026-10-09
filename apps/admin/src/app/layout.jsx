@@ -1,16 +1,18 @@
-import { Geist, Geist_Mono } from "next/font/google"
-import "./globals.css" 
-import Sidebar from "./component/Sidebar/Sidebar"
+ import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+import Sidebar from "./component/Sidebar/Sidebar";
+import { SettingsProvider } from "./component/SettingsProvider/SettingsProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-})
+});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-})
+});
 
 export const metadata = {
   title: {
@@ -29,19 +31,25 @@ export const metadata = {
   icons: {
     icon: "/images/images.png",
   },
-}
+};
 
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="fa"
+      lang="en"
       dir="ltr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">
-           <Sidebar />
-          <main className="main-content">{children}</main>
-       </body>
+        <SettingsProvider>
+          <Sidebar />
+
+          <main className="main-content">
+            {children}
+          </main>
+        </SettingsProvider>
+      </body>
     </html>
-  )
+  );
 }
+ 

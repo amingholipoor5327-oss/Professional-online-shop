@@ -2,19 +2,14 @@
 import Order from "@/models/Order";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import {
-  COOKIE_NAME,
-  verifySessionToken,
-} from "@/lib/auth";
+import { COOKIE_NAME, verifySessionToken,} from "@/lib/auth";
 
 async function isAdminAuthenticated() {
   const cookieStore = await cookies();
   const token = cookieStore.get(COOKIE_NAME)?.value;
 
   const session = verifySessionToken(token);
-  const adminEmail = process.env.ADMIN_EMAIL
-    ?.trim()
-    .toLowerCase();
+  const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
 
   return Boolean(
     session &&
@@ -23,8 +18,7 @@ async function isAdminAuthenticated() {
   );
 }
 
-// دریافت یک سفارش
-export async function GET(req, { params }) {
+ export async function GET(req, { params }) {
   try {
     if (!(await isAdminAuthenticated())) {
       return NextResponse.json(
@@ -56,8 +50,8 @@ export async function GET(req, { params }) {
   }
 }
 
-// لغو سفارش
-export async function PATCH(req, { params }) {
+
+ export async function PATCH(req, { params }) {
   try {
     if (!(await isAdminAuthenticated())) {
       return NextResponse.json(
