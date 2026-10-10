@@ -14,7 +14,6 @@ export default function LoginPage() {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // ورود با ایمیل و رمز عبور
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -45,8 +44,7 @@ export default function LoginPage() {
     }
   }
 
-  // ورود با حساب گوگل
-  async function handleGoogleLogin() {
+   async function handleGoogleLogin() {
     setGoogleLoading(true);
     setError("");
 

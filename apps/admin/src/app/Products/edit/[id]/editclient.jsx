@@ -1,113 +1,220 @@
-"use client"
+ "use client";
 
-import { useParams, useRouter } from "next/navigation"
-import { useState } from "react"
-import styles from "../../../component/css/newproduct.module.css"
-import Link from "next/link"
-import { FaArrowLeft} from "react-icons/fa"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { FaArrowLeft, FaSave } from "react-icons/fa";
+import styles from "../../../component/css/editproduct.module.css";
 
-export default function EditClient({product}) {
-  const router = useRouter()
-  const {id} = useParams();
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
+export default function EditClient({ product }) {
+  const router = useRouter();
 
   const [form, setForm] = useState({
-    title: product?.title || "",
-    price: product?.price ||"",
-    image: product?.image || "",
-    description: product?.description ||"",      
-    category: product?.category ||  "men's clothing",
-  })
+    title: product?.title ?? "",
+    price: product?.price ?? "",
+    image: product?.image ?? "",
+    description: product?.description ?? "",
+    category: product?.category ?? "men's clothing",
+  });
 
-  const [loading , setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   function handleInput(e) {
-    const { name, value } = e.target
-    setForm((prev) => ({ ...prev, [name]: value }))
+    const { name, value } = e.target;
+
+    setForm((prev) => ({ ...prev, [name]: value }));
   }
 
   async function handleSubmit(e) {
-    e.preventDefault()
-    setLoading(true);
-    try {
-      const response = await fetch(` http://localhost:3001//api/products/${id}` , {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      })
+    e.preventDefault();
 
-      if (!response.ok) throw new Error(`HTTP ${response.status}`)
-        console.log(response)
-      router.push("/Products")
-      router.refresh()
+    if (loading) return;
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const id = product?.id ?? product?._id;
+
+      if (!id) {
+        throw new Error("Product ID not found");
+      }
+
+      const response = await fetch(
+        `${API_URL}/api/products/${encodeURIComponent(String(id))}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...form,
+            price: Number(form.price),
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      router.push("/Products");
+      router.refresh();
     } catch (err) {
-      console.error(err)
-      alert("Error ❌")
-    }finally{
-        setLoading(false)
+      console.error("Update product error:", err);
+      setError("ذخیره تغییرات ناموفق بود. اتصال API را بررسی کن.");
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
-    <div className={styles.Container}>
+    <main className={styles.Container}>
+      <header className={styles.PageHeader}>
+        <div>
+          <span className={styles.Eyebrow}>STORE MANAGEMENT</span>
+          <h1 className={styles.PageTitle}>Edit Product</h1>
+          <p className={styles.Subtitle}>
+            Update your product information.
+          </p>
+        </div>
+      </header>
+
       <form className={styles.Form} onSubmit={handleSubmit}>
-        <h1 className={styles.FormTitle}>Edit product</h1>
+        <div className={styles.FormHeader}>
+          <h2 className={styles.FormTitle}>Product Information</h2>
+          <p className={styles.FormSubtitle}>
+            Edit the fields below and save your changes.
+          </p>
+        </div>
 
-        <input
-          className={styles.Input}
-          type="text"
-          name="title"
-          value={form.title}
-          onChange={handleInput}
-          placeholder="Title"
-        />
+        <div className={styles.Field}>
+          <label className={styles.Label} htmlFor="title">
+            Product Title
+          </label>
 
-        <input
-          className={styles.Input}
-          type="number"
-          name="price"
-          value={form.price}
-          onChange={handleInput}
-          placeholder="Price"
-        />
+          <input
+            id="title"
+            className={styles.Input}
+            type="text"
+            name="title"
+            value={form.title}
+            onChange={handleInput}
+            placeholder="Enter product title"
+            required
+          />
+        </div>
 
-        <input
-          className={styles.Input}
-          type="text"
-          name="image"
-          value={form.image}
-          onChange={handleInput}
-          placeholder="Image URL"
-        />
+        <div className={styles.Field}>
+          <label className={styles.Label} htmlFor="price">
+            Price
+          </label>
 
-        <textarea
-          className={styles.Textarea}
-          name="description"
-          value={form.description}
-          onChange={handleInput}
-          placeholder="Description"
-        />
+          <input
+            id="price"
+            className={styles.Input}
+            type="number"
+            name="price"
+            value={form.price}
+            onChange={handleInput}
+            placeholder="Enter product price"
+            min="0"
+            step="any"
+            required
+          />
+        </div>
 
-        <select
-          className={styles.Select}
-          name="category"
-          value={form.category}
-          onChange={handleInput}
-        >
-          <option value="men's clothing">Men's Clothing</option>
-          <option value="women's clothing">Women's Clothing</option>
-          <option value="jewelry">Jewelry</option>
-          <option value="electronics">Electronics</option>
-        </select>
+        <div className={styles.Field}>
+          <label className={styles.Label} htmlFor="image">
+            Image URL
+          </label>
 
-        <button className={styles.SubmitBtn} type="submit"
-        disabled = {loading}
-        >
-          
-          {loading ? "saving..." : "save"}
-        </button>
+          <input
+            id="image"
+            className={styles.Input}
+            type="url"
+            name="image"
+            value={form.image}
+            onChange={handleInput}
+            placeholder="https://example.com/image.jpg"
+          />
+        </div>
 
-        <Link href={"/Products"} className={styles.back}><FaArrowLeft/> back</Link>
+        {form.image && (
+          <div className={styles.ImagePreview}>
+            <span className={styles.Label}>Image Preview</span>
+
+            <img
+              src={form.image}
+              alt={form.title || "Product preview"}
+              className={styles.PreviewImage}
+            />
+          </div>
+        )}
+
+        <div className={styles.Field}>
+          <label className={styles.Label} htmlFor="category">
+            Category
+          </label>
+
+          <select
+            id="category"
+            className={styles.Select}
+            name="category"
+            value={form.category}
+            onChange={handleInput}
+            required
+          >
+            <option value="men's clothing">Men's Clothing</option>
+            <option value="women's clothing">Women's Clothing</option>
+            <option value="jewelry">Jewelry</option>
+            <option value="electronics">Electronics</option>
+          </select>
+        </div>
+
+        <div className={styles.Field}>
+          <label className={styles.Label} htmlFor="description">
+            Description
+          </label>
+
+          <textarea
+            id="description"
+            className={styles.Textarea}
+            name="description"
+            value={form.description}
+            onChange={handleInput}
+            placeholder="Enter product description"
+            rows={5}
+          />
+        </div>
+
+        {error && (
+          <p className={styles.Error} role="alert">
+            {error}
+          </p>
+        )}
+
+        <div className={styles.Actions}>
+          <button
+            className={styles.SubmitBtn}
+            type="submit"
+            disabled={loading}
+          >
+            <FaSave />
+            {loading ? "Saving..." : "Save Changes"}
+          </button>
+
+          <Link href="/Products" className={styles.back}>
+            <FaArrowLeft />
+            Cancel
+          </Link>
+        </div>
       </form>
-    </div>
-  )
+    </main>
+  );
 }
+ 

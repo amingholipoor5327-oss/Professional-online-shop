@@ -1,0 +1,295 @@
+
+.Container {
+  min-height: 100vh;
+  padding: 36px;
+  background: #0b1020;
+  color: #e5e7eb;
+}
+
+.PageHeader {
+  max-width: 850px;
+  margin: 0 auto 28px;
+}
+
+.Eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #818cf8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.PageTitle {
+  margin: 0;
+  color: #f9fafb;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.Subtitle {
+  margin: 10px 0 0;
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.Form {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #273247;
+  border-radius: 16px;
+  background: #111827;
+  box-shadow: 0 18px 45px rgb(0 0 0 / 15%);
+}
+
+.FormHeader {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #273247;
+}
+
+.FormTitle {
+  margin: 0;
+  color: #f3f4f6;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.FormSubtitle {
+  margin: 9px 0 0;
+  color: #9ca3af;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.Field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 22px;
+}
+
+.Label {
+  display: block;
+  color: #d1d5db;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.Input,
+.Select,
+.Textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #374151;
+  border-radius: 9px;
+  outline: none;
+  background: #0b1220;
+  color: #f3f4f6;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.Input,
+.Select {
+  min-height: 46px;
+  padding: 12px 14px;
+}
+
+.Textarea {
+  min-height: 130px;
+  padding: 13px 14px;
+  line-height: 1.9;
+  resize: vertical;
+}
+
+.Input::placeholder,
+.Textarea::placeholder {
+  color: #6b7280;
+}
+
+.Input:focus,
+.Select:focus,
+.Textarea:focus {
+  border-color: #6366f1;
+  background: #0f172a;
+  box-shadow: 0 0 0 3px rgb(99 102 241 / 12%);
+}
+
+.Select {
+  cursor: pointer;
+}
+
+.Select option {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+.ImagePreview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: -5px 0 24px;
+  padding: 16px;
+  border: 1px solid #273247;
+  border-radius: 12px;
+  background: #0b1220;
+}
+
+.PreviewImage {
+  display: block;
+  width: 150px;
+  height: 150px;
+  padding: 8px;
+  border: 1px solid #374151;
+  border-radius: 10px;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+.Error {
+  margin: 0 0 20px;
+  padding: 13px 15px;
+  border: 1px solid #7f1d1d;
+  border-radius: 9px;
+  background: rgb(239 68 68 / 8%);
+  color: #fca5a5;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.Actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #273247;
+}
+
+.SubmitBtn,
+.back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.SubmitBtn {
+  border-color: #6366f1;
+  background: #6366f1;
+  color: #ffffff;
+}
+
+.SubmitBtn:hover:not(:disabled) {
+  border-color: #818cf8;
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+.SubmitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.back {
+  border-color: #374151;
+  background: #1f2937;
+  color: #d1d5db;
+}
+
+.back:hover {
+  border-color: #4b5563;
+  background: #273449;
+  color: #ffffff;
+}
+
+.SubmitBtn:focus-visible,
+.back:focus-visible {
+  outline: 2px solid #a5b4fc;
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .Container {
+    padding: 25px 18px;
+  }
+
+  .Form {
+    padding: 24px;
+  }
+
+  .PageTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Container {
+    padding: 20px 12px;
+  }
+
+  .PageTitle {
+    font-size: 25px;
+  }
+
+  .Subtitle {
+    font-size: 12px;
+  }
+
+  .Form {
+    padding: 17px;
+    border-radius: 12px;
+  }
+
+  .FormTitle {
+    font-size: 18px;
+  }
+
+  .Input,
+  .Select,
+  .Textarea {
+    font-size: 16px;
+  }
+
+  .Actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .SubmitBtn,
+  .back {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .PreviewImage {
+    width: 120px;
+    height: 120px;
+  }
+}
+ 
