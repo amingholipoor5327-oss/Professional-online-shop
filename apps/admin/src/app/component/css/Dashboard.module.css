@@ -1,363 +1,968 @@
  .Container {
-  padding: 30px;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  font-family: "Segoe UI", Tahoma, sans-serif;
-}
+  min-width: 0;
+  min-height: 100vh;
+  padding: 0 28px 32px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 
- .Head {
+  color: #e5edff;
+  background:
+    radial-gradient(ellipse at 80% 0%, #17234a 0%, transparent 35%),
+    #080f20;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+ 
+.Topbar {
+  min-height: 76px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid #e2e8f0;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.Title {
-  font-size: 26px;
-  font-weight: 800;
-  color: #1e293b;
-  margin: 0;
-}
-
-.date {
-  font-size: 14px;
-  color: #64748b;
-  font-weight: 500;
-}
-
- .cardsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-content: space-between;
   gap: 20px;
-  margin-bottom: 40px;
+
+  border-bottom: 1px solid #1e2b45;
+}
+
+.SearchBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 410px);
+  min-height: 42px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  background: #101c34;
+  border: 1px solid #293b60;
+  border-radius: 10px;
+
+  color: #a7b7d6;
+}
+
+.SearchBox > span {
+  font-size: 24px;
+}
+
+.SearchBox input {
+  width: 100%;
+  min-width: 0;
+  color: #e5edff;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 13px;
+}
+
+.SearchBox input::placeholder {
+  color: #8091b3;
+}
+
+.TopbarRight {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.LiveIndicator {
+  color: #9bb0d2;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.LiveIndicator::first-letter {
+  color: #20d49a;
+}
+
+.Notification {
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  color: #b7c6e3;
+  background: #101c34;
+  border: 1px solid #293b60;
+  border-radius: 11px;
+
+  font-size: 21px;
+}
+
+.TopAvatar {
+  display: grid;
+  place-items: center;
+
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  color: #ffffff;
+  background: #4934db;
+
+  border-radius: 50%;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.TopAvatar img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+.Welcome {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  min-height: 164px;
+  margin-bottom: 18px;
+  padding: 28px 6px;
+
+  overflow: hidden;
+  border-bottom: 1px solid #1e2b45;
+}
+
+.Welcome > div:first-child {
+  position: relative;
+  z-index: 2;
+}
+
+.Eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: #9185ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.Welcome h1 {
+  margin: 0;
+  color: #f4f7ff;
+
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.Welcome p {
+  margin: 12px 0 0;
+  color: #9db0d2;
+  font-size: 14px;
+}
+
+.WelcomeDate {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding-right: 15px;
+}
+
+.WelcomeDate > span {
+  font-size: 20px;
+}
+
+.WelcomeDate div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.WelcomeDate strong {
+  color: #c8d5f0;
+  font-size: 12px;
+}
+
+.WelcomeDate small {
+  color: #8296ba;
+  font-size: 12px;
+}
+
+.WelcomeDecoration {
+  position: absolute;
+  right: 0;
+  bottom: -45px;
+
+  color: #4c46d9;
+  font-size: 150px;
+  opacity: 0.18;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+
+  margin-bottom: 20px;
 }
 
 .card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 22px 24px;
-  background: #fff;
-  border-radius: 16px;
-  text-decoration: none;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  border-left: 4px solid #cbd5e1;
-  transition: all 0.3s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 190px;
+  padding: 18px;
+  box-sizing: border-box;
+
+  color: #eef3ff;
+  text-decoration: none;
+
+  border: 1px solid #24375b;
+  border-radius: 17px;
   overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -55px;
+  right: -45px;
+
+  width: 140px;
+  height: 140px;
+
+  background: currentColor;
+  border-radius: 50%;
+  opacity: 0.045;
+  filter: blur(12px);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-.cardIcon {
-  font-size: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
-  flex-shrink: 0;
-}
-
-.cardContent {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-}
-
-.cardTitle {
-  font-size: 13px;
-  font-weight: 600;
-  color: #64748b;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.cardValue {
-  font-size: 22px;
-  font-weight: 800;
-  color: #1e293b;
-  margin: 0;
+  border-color: #5866a0;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 20%);
 }
 
 .blue {
-  border-left-color: #2563eb;
-}
-.blue .cardIcon {
-  background: #dbeafe;
+  color: #dce8ff;
+  background: linear-gradient(145deg, #112247, #0d172b);
+  border-color: #233e73;
 }
 
 .purple {
-  border-left-color: #9333ea;
-}
-.purple .cardIcon {
-  background: #f3e8ff;
+  color: #e6ddff;
+  background: linear-gradient(145deg, #211744, #101529);
+  border-color: #382664;
 }
 
 .green {
-  border-left-color: #16a34a;
-}
-.green .cardIcon {
-  background: #dcfce7;
+  color: #d7fff1;
+  background: linear-gradient(145deg, #0c302f, #0d192a);
+  border-color: #16534e;
 }
 
 .orange {
-  border-left-color: #ea580c;
-}
-.orange .cardIcon {
-  background: #ffedd5;
-}
-
- .section {
-  background: #fff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  color: #ffecd3;
+  background: linear-gradient(145deg, #30231e, #13182a);
+  border-color: #60402c;
 }
 
-.sectionHead {
+.CardTop {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+}
+
+.cardIcon {
+  display: grid;
+  place-items: center;
+
+  width: 46px;
+  height: 46px;
+
+  color: #fff;
+  background: #3269f6;
+  border-radius: 50%;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.purple .cardIcon {
+  background: linear-gradient(135deg, #a052ff, #6329db);
+}
+
+.green .cardIcon {
+  background: linear-gradient(135deg, #30dba4, #0ca779);
+}
+
+.orange .cardIcon {
+  background: linear-gradient(135deg, #ffbd63, #ed7c24);
+}
+
+.CardDots {
+  color: #7385aa;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.cardTitle {
+  margin: 16px 0 7px;
+  color: #c1cee7;
+  font-size: 13px;
+}
+
+.cardValue {
+  margin: 0;
+  color: #f7f9ff;
+
+  font-size: clamp(21px, 2vw, 27px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+
+  overflow-wrap: anywhere;
+}
+
+.CardFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  margin-top: auto;
+  padding-top: 15px;
+
+  color: #8da3c8;
+  font-size: 11px;
+}
+
+.CardArrow {
+  color: #55ddb2;
+  font-size: 17px;
+}
+
+.purple .CardArrow {
+  color: #a98aff;
+}
+
+.orange .CardArrow {
+  color: #ffb65c;
+}
+ 
+.AnalyticsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 18px;
+
   margin-bottom: 20px;
 }
 
-.sectionTitle {
-  font-size: 18px;
-  font-weight: 700;
-  color: #1e293b;
+.Panel,
+.OrdersPanel {
+  min-width: 0;
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: linear-gradient(145deg, #101b31, #0d1629);
+  border: 1px solid #233452;
+  border-radius: 16px;
+}
+
+.PanelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+.PanelHead h2 {
   margin: 0;
+  color: #f1f5ff;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.sectionLink {
-  font-size: 14px;
-  color: #2563eb;
-  text-decoration: none;
+.PanelHead p {
+  margin: 7px 0 0;
+  color: #8ea2c6;
+  font-size: 12px;
+}
+
+.PeriodBadge {
+  padding: 10px 12px;
+
+  color: #cbd7f0;
+  background: #101d36;
+  border: 1px solid #2b3e61;
+  border-radius: 9px;
+
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.Chart {
+  width: 100%;
+  min-width: 0;
+}
+
+.Chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.StatusLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 25px;
+
+  min-height: 210px;
+}
+
+.Donut {
+  display: grid;
+  place-items: center;
+
+  width: clamp(125px, 15vw, 165px);
+  aspect-ratio: 1;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  position: relative;
+}
+
+.Donut::before {
+  content: "";
+  position: absolute;
+  inset: 16%;
+
+  background: #111c32;
+  border: 1px solid #243654;
+  border-radius: 50%;
+}
+
+.DonutCenter {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.DonutCenter strong {
+  color: #f4f7ff;
+  font-size: 26px;
+}
+
+.DonutCenter span {
+  color: #9aaccb;
+  font-size: 10px;
+}
+
+.StatusLegend {
+  flex: 1;
+  min-width: 0;
+}
+
+.StatusItem {
+  display: grid;
+  grid-template-columns: 9px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 0;
+
+  border-bottom: 1px solid #1d2b45;
+}
+
+.StatusItem:last-child {
+  border-bottom: none;
+}
+
+.StatusDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.StatusName {
+  color: #c5d2eb;
+  font-size: 11px;
+}
+
+.StatusItem strong {
+  color: #e9efff;
+  font-size: 11px;
+}
+
+.StatusItem small {
+  min-width: 30px;
+  color: #92a5c6;
+  font-size: 10px;
+  text-align: right;
+}
+
+.OrdersPanel {
+  margin-bottom: 20px;
+}
+
+.ViewAll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 11px 14px;
+
+  color: #fff;
+  background: linear-gradient(135deg, #6458ff, #4934db);
+  border-radius: 9px;
+
+  font-size: 12px;
   font-weight: 600;
-  transition: color 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: filter 0.2s ease;
 }
 
-.sectionLink:hover {
-  color: #1d4ed8;
+.ViewAll:hover {
+  filter: brightness(1.15);
 }
 
- .TableWrapper {
+.ViewAll span {
+  font-size: 16px;
+}
+
+.TableWrapper {
   width: 100%;
   overflow-x: auto;
+
+  border: 1px solid #1e2e4b;
   border-radius: 10px;
 }
 
 .Table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  min-width: 600px;
+  border-collapse: collapse;
+
+  text-align: left;
+  white-space: nowrap;
 }
 
 .Table thead {
-  background: #f8fafc;
- }
+  background: #14213b;
+}
 
 .Table th {
-  padding: 12px 16px;
-  text-align: left;
-  color: #475569;
+  padding: 14px 12px;
+
+  color: #a9bad9;
+  font-size: 11px;
   font-weight: 600;
+
+  border-bottom: 1px solid #273856;
+}
+
+.Table td {
+  padding: 12px;
+
+  color: #dbe5fa;
   font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
-  border-bottom: 2px solid #e2e8f0;
+
+  border-bottom: 1px solid #1c2b44;
 }
 
 .Table tbody tr {
   transition: background 0.2s ease;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.Table tbody tr:last-child {
-  border-bottom: none;
 }
 
 .Table tbody tr:hover {
-  background: #f8fafc;
+  background: #14213b;
 }
 
-.Table td {
-  padding: 14px 16px;
-  color: #334155;
-  font-size: 14px;
-  vertical-align: middle;
+.Table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-.Table td.price {
-  font-weight: 700;
-  color: #16a34a;
-  white-space: nowrap;
-}
-
-.Table td.date {
-  color: #64748b;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
- .badge {
-  display: inline-block;
-  padding: 4px 12px;
-  font-size: 12px;
+.OrderId {
+  color: #a9b9dc !important;
   font-weight: 600;
+}
+
+.Customer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.CustomerAvatar {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  color: #fff;
+  background: linear-gradient(135deg, #635bff, #2773c9);
+  border-radius: 50%;
+
+  font-weight: 700;
+}
+
+.Customer > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Customer strong {
+  color: #e5edff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.Customer small {
+  color: #8196bb;
+  font-size: 10px;
+}
+
+.Price {
+  color: #e8efff !important;
+  font-weight: 600;
+}
+
+.Badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 9px;
   border-radius: 20px;
-  text-transform: capitalize;
-  white-space: nowrap;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.Badge > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.delivered {
+  color: #31d5a0;
+  background: rgb(34 201 147 / 13%);
 }
 
 .pending {
-  background: #fef3c7;
-  color: #92400e;
-}
-.success {
-  background: #dcfce7;
-  color: #166534;
-}
-.failed {
-  background: #fee2e2;
-  color: #991b1b;
-}
-.cancelled {
-  background: #f1f5f9;
-  color: #475569;
-}
-.shipped {
-  background: #dbeafe;
-  color: #1e40af;
-}
-.delivered {
-  background: #bbf7d0;
-  color: #14532d;
+  color: #ffb74e;
+  background: rgb(255 173 67 / 13%);
 }
 
+.processing {
+  color: #62a0ff;
+  background: rgb(52 120 246 / 15%);
+}
+
+.cancelled {
+  color: #ff6389;
+  background: rgb(240 68 114 / 13%);
+}
+
+.refunded {
+  color: #b49aff;
+  background: rgb(139 92 246 / 15%);
+}
+
+.unknown {
+  color: #b8c5df;
+  background: rgb(148 163 184 / 12%);
+}
+
+.OrderDate {
+  color: #a8b9d7 !important;
+}
+
+.ViewButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 12px;
+
+  color: #dce6ff;
+  background: #111e37;
+  border: 1px solid #34496e;
+  border-radius: 7px;
+
+  font-size: 11px;
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ViewButton:hover {
+  background: #293a61;
+  border-color: #6577b7;
+}
+
+ 
 .Empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 190px;
+  gap: 10px;
+
+  color: #9aaccb;
   text-align: center;
-  padding: 40px 20px;
-  color: #94a3b8;
+}
+
+.Empty > span {
+  font-size: 35px;
+}
+
+.Empty strong {
+  color: #e5edff;
   font-size: 15px;
 }
-@media (max-width: 1024px) {
+
+.Empty p {
+  margin: 0;
+  font-size: 12px;
+}
+ 
+@media (max-width: 1100px) {
   .Container {
-    padding: 24px 20px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
-  .Title {
-    font-size: 22px;
+
+  .cardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .cardValue {
-    font-size: 20px;
+
+  .AnalyticsGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .StatusLayout {
+    justify-content: center;
+    gap: 40px;
   }
 }
 
 @media (max-width: 768px) {
   .Container {
-    padding: 20px 15px;
+    padding: 76px 15px 24px;
   }
-  .Head {
-    margin-bottom: 24px;
+
+  .Topbar {
+    min-height: 62px;
+    margin-top: -62px;
+    margin-bottom: 20px;
+    padding-left: 55px;
   }
-  .Title {
-    font-size: 20px;
+
+  .SearchBox {
+    min-height: 38px;
   }
+
+  .SearchBox input {
+    font-size: 11px;
+  }
+
+  .TopbarRight {
+    gap: 8px;
+  }
+
+  .LiveIndicator {
+    display: none;
+  }
+
+  .Notification {
+    width: 34px;
+    height: 34px;
+  }
+
+  .TopAvatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .Welcome {
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 150px;
+    padding: 20px 0;
+  }
+
+  .Welcome h1 {
+    max-width: 100%;
+    font-size: 23px;
+    line-height: 1.4;
+  }
+
+  .Welcome p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .WelcomeDate {
+    padding-right: 0;
+  }
+
+  .WelcomeDecoration {
+    right: -10px;
+    bottom: -20px;
+    font-size: 100px;
+  }
+
   .cardsGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 30px;
-  }
-  .card {
-    padding: 16px 18px;
     gap: 12px;
   }
-  .cardIcon {
-    width: 48px;
-    height: 48px;
-    font-size: 28px;
+
+  .card {
+    min-height: 170px;
+    padding: 14px;
+    border-radius: 13px;
   }
+
+  .cardIcon {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+  }
+
   .cardTitle {
     font-size: 12px;
   }
+
   .cardValue {
-    font-size: 18px;
+    font-size: 22px;
   }
-  .section {
-    padding: 18px;
+
+  .CardFoot {
+    font-size: 10px;
   }
-  .sectionTitle {
-    font-size: 16px;
+
+  .Panel,
+  .OrdersPanel {
+    padding: 15px;
+    border-radius: 13px;
+  }
+
+  .PanelHead h2 {
+    font-size: 14px;
+  }
+
+  .PanelHead p {
+    font-size: 11px;
+  }
+
+  .StatusLayout {
+    flex-direction: column;
+    gap: 22px;
+    padding: 10px 0;
+  }
+
+  .Donut {
+    width: 150px;
+  }
+
+  .StatusLegend {
+    width: 100%;
+  }
+
+  .OrdersPanel .PanelHead {
+    align-items: flex-start;
+  }
+
+  .ViewAll {
+    padding: 9px 10px;
+    font-size: 10px;
+  }
+
+  .Table {
+    min-width: 650px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 420px) {
   .Container {
-    padding: 15px 10px;
+    padding-right: 12px;
+    padding-left: 12px;
   }
-  .Head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  .Title {
-    font-size: 18px;
-  }
-  .date {
-    font-size: 12px;
-  }
+
   .cardsGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 9px;
   }
+
   .card {
-    padding: 12px 14px;
-    gap: 8px;
-    border-radius: 12px;
+    min-height: 160px;
+    padding: 11px;
   }
-  .cardIcon {
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-  }
+
   .cardTitle {
-    font-size: 10px;
+    line-height: 1.5;
   }
+
   .cardValue {
-    font-size: 15px;
+    font-size: 20px;
   }
-  .section {
-    padding: 14px;
+
+  .CardDots {
+    font-size: 11px;
   }
-  .sectionHead {
-    margin-bottom: 14px;
+
+  .Panel,
+  .OrdersPanel {
+    padding: 12px;
   }
-  .sectionTitle {
-    font-size: 15px;
-  }
-  .sectionLink {
-    font-size: 12px;
-  }
-  .Table th,
-  .Table td {
-    padding: 10px 10px;
-    font-size: 12px;
-  }
-  .badge {
-    padding: 3px 8px;
+
+  .PeriodBadge {
+    padding: 8px;
     font-size: 10px;
+  }
+
+  .OrdersPanel .PanelHead {
+    flex-direction: column;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .ViewAll,
+  .ViewButton,
+  .Table tbody tr {
+    transition: none;
+  }
+}
+ 
