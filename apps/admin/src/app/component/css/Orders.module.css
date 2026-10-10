@@ -1,310 +1,833 @@
  .Container {
-  padding: 30px;
+  --bg-main: #080f1e;
+  --bg-card: #101a2d;
+  --bg-hover: #15223a;
+  --border: #22314b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  min-height: 100vh;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+  padding: 32px;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  background: var(--bg-main);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
- .Head {
+.Container *,
+.Container *::before,
+.Container *::after {
+  box-sizing: border-box;
+}
+ 
+.PageHeader {
   display: flex;
-  justify-content:flex-start;
   align-items: center;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #e2e8f0;
- }
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.Eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
 
 .Title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #1e293b;
   margin: 0;
- 
+  color: #f8fafc;
+  font-size: clamp(27px, 3vw, 36px);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.Subtitle {
+  margin: 10px 0 0;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.HeaderIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  border: 1px solid rgb(96 165 250 / 25%);
+  border-radius: 18px;
+  background: rgb(59 130 246 / 12%);
+  color: #60a5fa;
+  font-size: 25px;
+}
+
+.StatsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.StatCard {
+  position: relative;
+  min-width: 0;
+  padding: 23px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #111d32, #0e1728);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.StatCard:hover {
+  transform: translateY(-3px);
+  border-color: #3b4f70;
+}
+
+.StatTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 23px;
+  color: #a6b4c9;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.StatTop > svg {
+  font-size: 18px;
+}
+
+.StatCard strong {
+  display: block;
+  margin-bottom: 9px;
+  color: #f8fafc;
+  font-size: clamp(25px, 2.5vw, 34px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  overflow-wrap: anywhere;
+}
+
+.StatCard small {
+  display: block;
+  color: #7889a3;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.StatusDot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.statBlue {
+  border-top: 2px solid #3b82f6;
+}
+
+.statBlue .StatTop > svg {
+  color: #60a5fa;
+}
+
+.statOrange {
+  border-top: 2px solid #f59e0b;
+}
+
+.statOrange .StatTop > .StatusDot {
+  color: #fbbf24;
+  box-shadow: 0 0 12px rgb(251 191 36 / 35%);
+}
+
+.statGreen {
+  border-top: 2px solid #10b981;
+}
+
+.statGreen .StatTop > .StatusDot {
+  color: #34d399;
+  box-shadow: 0 0 12px rgb(52 211 153 / 35%);
+}
+
+.statPurple {
+  border-top: 2px solid #a78bfa;
+}
+
+.statPurple .StatTop > svg {
+  color: #a78bfa;
+}
+  
+.OrdersPanel {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg-card);
+  box-shadow: 0 12px 35px rgb(0 0 0 / 10%);
+}
+
+.PanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.PanelHeader h2 {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.PanelHeader p {
+  margin: 8px 0 0;
+  color: #7f90a9;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.TotalBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  padding: 10px 13px;
+  border: 1px solid #263a58;
+  border-radius: 10px;
+  background: #15223a;
+  color: #c5d5eb;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.TotalBadge svg {
+  color: #60a5fa;
 }
 
 .TableWrapper {
   width: 100%;
   overflow-x: auto;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  scrollbar-width: thin;
+  scrollbar-color: #34445f #101a2d;
+}
+
+.TableWrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.TableWrapper::-webkit-scrollbar-track {
+  background: #101a2d;
+}
+
+.TableWrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #34445f;
 }
 
 .Table {
   width: 100%;
+  min-width: 1450px;
   border-collapse: separate;
   border-spacing: 0;
-  background: #fff;
-  min-width: 900px;
+  text-align: left;
 }
 
 .Table thead {
-  background: #1e293b;
+  background: #0d1627;
 }
 
 .Table th {
-  padding: 14px 16px;
-  text-align: center;
-  color: #fff;
-  font-weight: 600;
-  font-size: 13px;
+  padding: 17px 16px;
+  border-bottom: 1px solid #26344c;
+  color: #8091aa;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
   white-space: nowrap;
-}
-
-.Table tbody tr {
-  transition: background 0.2s ease;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.Table tbody tr:last-child {
-  border-bottom: none;
-}
-
-.Table tbody tr:hover {
-  background: #f5fafc;
 }
 
 .Table td {
-  padding: 14px 16px;
-  color: #334155;
-  font-size: 14px;
-   vertical-align: middle;
+  padding: 18px 16px;
+  border-bottom: 1px solid rgb(34 49 75 / 65%);
+  color: #cbd5e1;
+  font-size: 12px;
+  vertical-align: middle;
 }
-.Table td a.more{
+
+.Table tbody tr {
+  background: transparent;
+  transition: background 0.18s ease;
+}
+
+.Table tbody tr:hover {
+  background: #142139;
+}
+
+.Table tbody tr:last-child td {
+  border-bottom: none;
+}
+ 
+.OrderIdentity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.OrderNumber {
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.NewBadge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 13px;
-  transition: all 0.2s ease;
- }
- 
- .Table td a.more:hover{
-  color: #1d4ed8;
-  text-decoration: underline;
-  transform: translateX(-3px);
- }
-
-.Table td.address {
-  max-width: 200px;
-  font-size: 13px;
-  color: #64748b;
-  line-height: 1.5;
-}
-
-.Table td.price {
+  padding: 4px 7px;
+  border: 1px solid rgb(96 165 250 / 20%);
+  border-radius: 6px;
+  background: rgb(59 130 246 / 10%);
+  color: #93c5fd;
+  font-size: 10px;
   font-weight: 700;
-  color: #16a34a;
-  white-space: nowrap;
 }
 
-.Table td.date {
-  color: #64748b;
-  font-size: 13px;
-  white-space: nowrap;
+.NewBadge > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #60a5fa;
 }
- .badge {
-  display: inline-block;
-  padding: 4px 12px;
+
+.Customer {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 145px;
+}
+
+.CustomerAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  border: 1px solid rgb(96 165 250 / 25%);
+  border-radius: 11px;
+  background: linear-gradient(145deg, #1e3a5f, #172b49);
+  color: #bfdbfe;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.CustomerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.CustomerInfo strong {
+  max-width: 160px;
+  overflow: hidden;
+  color: #e2e8f0;
   font-size: 12px;
-  font-weight: 600;
-  border-radius: 20px;
-  text-transform: capitalize;
+  font-weight: 700;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.pending {
-  background: #fef3c7;
-  color: #92400e;
-}
-
- .success {
-  background: #dcfce7;
-  color: #166534;
-}
-
- .failed {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
- .cancelled {
-  background: #f1f5f9;
-  color: #475569;
-}
-
- .shipped {
-  background: #dbeafe;
-  color: #1e40af;
-}
-
- .delivered {
-  background: #bbf7d0;
-  color: #14532d;
+.CustomerInfo small {
+  color: #70819a;
+  font-size: 10px;
 }
  
-.products {
+.Contact {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  min-width: 180px;
+  white-space: nowrap;
 }
 
-.productItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  background: #f8fafc;
-  border-radius: 6px;
+.Contact span {
+  color: #d1dbea;
   font-size: 12px;
-  }
+}
 
-.productTitle {
-  color: #334155;
+.Contact small {
+  color: #71829b;
+  font-size: 10px;
+}
+
+.Address {
+  max-width: 190px;
   overflow: hidden;
+  color: #aab8cb;
+  line-height: 1.8;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 130px;
 }
-
-.productCount {
-  color: #2563eb;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
- .Empty {
-  text-align: center;
-  padding: 60px 20px;
-  color: #94a3b8;
-  font-size: 16px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
- .Error {
-  padding: 20px;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: 10px;
-  color: #dc2626;
-  text-align: center;
-  font-size: 15px;
-}
-.newBadge {
-  display: inline-block;
-  margin-left: 8px;
-  padding: 3px 10px;
-  font-size: 10px;
+ 
+.Price {
+  color: #6ee7b7 !important;
+  font-size: 13px !important;
   font-weight: 800;
-  letter-spacing: 0.5px;
-  color: #fff;
-  background: linear-gradient(135deg, #c27c03, #ff0000);
-  border-radius: 20px;
-  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
-  animation: pulse 2s ease-in-out infinite;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
+.Date {
+  color: #9aaac0 !important;
+  font-size: 11px !important;
+  white-space: nowrap;
+}
+ 
+.Badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.BadgeDot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.pending {
+  border-color: rgb(251 191 36 / 20%);
+  background: rgb(251 191 36 / 9%);
+  color: #fbbf24;
+}
+
+.success,
+.delivered {
+  border-color: rgb(52 211 153 / 20%);
+  background: rgb(52 211 153 / 9%);
+  color: #34d399;
+}
+
+.processing {
+  border-color: rgb(96 165 250 / 20%);
+  background: rgb(96 165 250 / 9%);
+  color: #60a5fa;
+}
+
+.shipped {
+  border-color: rgb(167 139 250 / 20%);
+  background: rgb(167 139 250 / 9%);
+  color: #c4b5fd;
+}
+
+.cancelled {
+  border-color: rgb(251 113 133 / 20%);
+  background: rgb(251 113 133 / 9%);
+  color: #fb7185;
+}
+
+.refunded {
+  border-color: rgb(148 163 184 / 20%);
+  background: rgb(148 163 184 / 9%);
+  color: #cbd5e1;
+}
+
+.unknown {
+  border-color: rgb(148 163 184 / 20%);
+  background: rgb(148 163 184 / 9%);
+  color: #94a3b8;
+}
+
+.ProductList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 140px;
+  max-width: 220px;
+}
+
+.ProductItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+}
+
+.ProductTitle {
+  max-width: 150px;
+  overflow: hidden;
+  color: #cbd5e1;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ProductCount {
+  flex-shrink: 0;
+  color: #93c5fd;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.MoreProducts {
+  padding: 4px 7px;
+  border-radius: 5px;
+  background: #1c2b43;
+  color: #93a8c4;
+  font-size: 10px;
+}
+
+.Muted {
+  color: #64748b;
+  font-size: 11px;
+}
+ 
+.DetailsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid rgb(96 165 250 / 25%);
+  border-radius: 8px;
+  background: rgb(59 130 246 / 10%);
+  color: #93c5fd;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.DetailsButton:hover {
+  border-color: rgb(96 165 250 / 50%);
+  background: rgb(59 130 246 / 20%);
+}
+
+.DetailsButton svg {
+  font-size: 10px;
+}
+
+.Actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.CancelButton,
+.DeleteButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 11px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.CancelButton:hover,
+.DeleteButton:hover {
+  transform: translateY(-1px);
+}
+
+.CancelButton {
+  border: 1px solid rgb(251 191 36 / 25%);
+  background: rgb(251 191 36 / 8%);
+  color: #fbbf24;
+}
+
+.CancelButton:hover {
+  border-color: rgb(251 191 36 / 45%);
+  background: rgb(251 191 36 / 16%);
+}
+
+.DeleteButton {
+  border: 1px solid rgb(251 113 133 / 25%);
+  background: rgb(251 113 133 / 8%);
+  color: #fb7185;
+}
+
+.DeleteButton:hover {
+  border-color: rgb(251 113 133 / 45%);
+  background: rgb(251 113 133 / 16%);
+}
+
+.CancelButton svg,
+.DeleteButton svg {
+  font-size: 11px;
+}
+
+.Empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 310px;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.EmptyIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+  border: 1px solid #263a58;
+  border-radius: 22px;
+  background: #15223a;
+  color: #7da9e8;
+  font-size: 27px;
+}
+
+.Empty h3 {
+  margin: 0 0 10px;
+  color: #e2e8f0;
+  font-size: 18px;
+}
+
+.Empty p {
+  max-width: 360px;
+  margin: 0;
+  color: #7f90a9;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.ErrorPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  padding: 35px;
+  border: 1px solid #29354b;
+  border-radius: 18px;
+  background: #101a2d;
+  text-align: center;
+}
+
+.ErrorIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  margin-bottom: 18px;
+  border: 1px solid rgb(251 113 133 / 25%);
+  border-radius: 16px;
+  background: rgb(251 113 133 / 10%);
+  color: #fb7185;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.ErrorPanel h2 {
+  margin: 0 0 10px;
+  color: #f1f5f9;
+  font-size: 20px;
+}
+
+.ErrorPanel p {
+  max-width: 420px;
+  margin: 0;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+@media (max-width: 1200px) {
+  .Container {
+    padding: 25px;
   }
-  50% {
-    transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.6);
+
+  .StatsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@media (max-width: 1024px) {
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
   .Container {
-    padding: 24px 20px;
+    padding: 80px 15px 25px;
+  }
+
+  .PageHeader {
+    align-items: flex-start;
+    margin-bottom: 25px;
   }
 
   .Title {
-    font-size: 22px;
+    font-size: 28px;
   }
 
-  .Table th,
-  .Table td {
-    padding: 12px 12px;
-    font-size: 13px;
-  }
-}
-
- @media (max-width: 768px) {
-  .Container {
-    padding: 20px 15px;
+  .Subtitle {
+    max-width: 270px;
+    font-size: 12px;
   }
 
-  .Title {
+  .HeaderIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
     font-size: 20px;
   }
 
+  .StatsGrid {
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .StatCard {
+    padding: 17px;
+    border-radius: 13px;
+  }
+
+  .StatTop {
+    align-items: flex-start;
+    margin-bottom: 18px;
+    font-size: 11px;
+  }
+
+  .StatCard strong {
+    font-size: 27px;
+  }
+
+  .StatCard small {
+    font-size: 10px;
+  }
+
+  .OrdersPanel {
+    border-radius: 14px;
+  }
+
+  .PanelHeader {
+    align-items: flex-start;
+    padding: 19px 16px;
+  }
+
+  .PanelHeader h2 {
+    font-size: 16px;
+  }
+
+  .PanelHeader p {
+    max-width: 220px;
+    font-size: 11px;
+  }
+
+  .TotalBadge {
+    gap: 6px;
+    padding: 8px;
+    font-size: 10px;
+  }
+
   .Table {
-    min-width: 800px;
+    min-width: 1450px;
   }
 
   .Table th,
   .Table td {
-    padding: 10px 10px;
-    font-size: 12px;
+    padding: 15px 12px;
   }
 
-  .productTitle {
-    max-width: 100px;
-  }
-
-  .address {
-    max-width: 150px;
-    font-size: 12px;
+  .Empty {
+    min-height: 270px;
   }
 }
 
- @media (max-width: 500px) {
+@media (max-width: 420px) {
   .Container {
-    padding: 15px 10px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 
-  .Title {
-    font-size: 18px;
+  .StatsGrid {
+    gap: 9px;
   }
 
-  .TableWrapper {
-    border-radius: 8px;
+  .StatCard {
+    padding: 14px 12px;
   }
 
-  .Table th {
-    font-size: 11px;
-    padding: 10px 8px;
-  }
-
-  .Table td {
-    padding: 8px;
-    font-size: 11px;
-  }
-
-  .badge {
-    padding: 3px 8px;
+  .StatTop {
+    gap: 6px;
     font-size: 10px;
   }
 
-  .productItem {
-    padding: 4px 8px;
-    font-size: 11px;
+  .StatCard strong {
+    font-size: 23px;
   }
 
-  .productTitle {
-    max-width: 80px;
+  .StatCard small {
+    font-size: 9px;
   }
 
-  .price {
-    font-size: 12px;
+  .HeaderIcon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .PanelHeader {
+    gap: 10px;
+    padding: 16px 12px;
   }
 }
+
+.CancelButton:focus-visible,
+.DeleteButton:focus-visible,
+.DetailsButton:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .StatCard,
+  .CancelButton,
+  .DeleteButton,
+  .DetailsButton,
+  .Table tbody tr {
+    transition: none;
+  }
+}
+ 

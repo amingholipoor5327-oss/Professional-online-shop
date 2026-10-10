@@ -1,167 +1,611 @@
- .Container {
-  padding: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+.Container {
+  min-height: 100vh;
+  padding: 36px;
+  background: #0b1120;
+  color: #e2e8f0;
+  box-sizing: border-box;
 }
 
- .backBtn {
+.BackButton {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 24px;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #334155;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding: 10px 15px;
+  color: #cbd5e1;
+  background: #111c30;
+  border: 1px solid #26364f;
+  border-radius: 9px;
   text-decoration: none;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s ease;
 }
 
-.backBtn:hover {
-  background: #f8fafc;
-  color: #0f172a;
-  transform: translateX(-3px);
+.BackButton:hover {
+  color: #ffffff;
+  background: #1e293b;
+  border-color: #3b82f6;
 }
 
- .Card {
+.PageHeader {
   display: flex;
-  flex-direction: row;
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 30px;
 }
 
- .ImageWrapper {
-  flex: 0 0 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f8fafc;
-  padding: 40px;
-  border-left: 10px solid #1e293b;
-  border-radius: 20px 0px 0px 20px ;
-}
-
-.Image {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  object-fit: contain;
-}
-
- .Details {
-  flex: 1;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.Eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .Title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #1e293b;
   margin: 0;
-  line-height: 1.4;
+  color: #f8fafc;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
 }
 
-.Category {
-  align-self: flex-start;
-  padding: 6px 14px;
+.Subtitle {
+  margin: 10px 0 0;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.OrderReference {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 16px 20px;
+  background: #111c30;
+  border: 1px solid #26364f;
+  border-radius: 12px;
+}
+
+.OrderReference span {
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.OrderReference strong {
+  color: #60a5fa;
+  font-size: 20px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.OverviewGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.OverviewCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 22px;
+  background: #111c30;
+  border: 1px solid #26364f;
+  border-radius: 14px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.OverviewCard:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+}
+
+.CardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.12);
+  border-radius: 12px;
+  font-size: 19px;
+}
+
+.OverviewCard > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.OverviewCard > div:last-child > span {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.OverviewCard strong {
+  overflow-wrap: anywhere;
+  color: #f8fafc;
+  font-size: 21px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.DateValue {
+  font-size: 14px !important;
+  line-height: 1.6;
+}
+
+.ContentGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.Panel {
+  min-width: 0;
+  margin-bottom: 24px;
+  padding: 24px;
+  background: #111c30;
+  border: 1px solid #26364f;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.ContentGrid .Panel {
+  margin-bottom: 0;
+}
+
+.PanelHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #26364f;
+}
+
+.PanelIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.12);
+  border-radius: 11px;
+  font-size: 17px;
+}
+
+.PanelHeader h2 {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.PanelHeader p {
+  margin: 6px 0 0;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.InfoList {
+  display: flex;
+  flex-direction: column;
+}
+
+.InfoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.55);
+}
+
+.InfoItem:last-child {
+  border-bottom: none;
+}
+
+.InfoLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.InfoLabel svg {
+  color: #60a5fa;
+}
+
+.InfoItem > strong {
+  max-width: 65%;
+  color: #e2e8f0;
   font-size: 13px;
   font-weight: 600;
-  color: #0284c7;
-  background: #e0f2fe;
-  border-radius: 20px;
-  text-decoration: none;
-  text-transform: capitalize;
-  transition: all 0.2s ease;
-}
- 
-.Price {
-  font-size: 28px;
-  font-weight: 800;
-  color: #16a34a;
-  margin: 0;
+  text-align: right;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
 }
 
-.Description {
-  font-size: 15px;
-  color: #64748b;
-  line-height: 1.7;
-  margin: 0;
+.StatusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 750;
+  white-space: nowrap;
 }
 
-.Rating {
-  font-size: 14px;
-  color: #f59e0b;
+.StatusDot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.pending {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.success,
+.delivered {
+  color: #4ade80;
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.processing {
+  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.shipped {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.cancelled {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.refunded {
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.1);
+  border-color: rgba(249, 115, 22, 0.2);
+}
+
+.unknown {
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, 0.1);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.TotalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 18px;
+  background: #0b1425;
+  border: 1px solid #26364f;
+  border-radius: 10px;
+}
+
+.TotalRow span {
+  color: #cbd5e1;
+  font-size: 13px;
   font-weight: 600;
 }
 
- .Actions {
-  margin-top: 16px;
-  padding-top: 20px;
-  border-top: 1px solid #e2e8f0;
+.TotalRow strong {
+  color: #60a5fa;
+  font-size: 21px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
 }
 
- .Error {
-  padding: 20px;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: 10px;
-  color: #dc2626;
-  text-align: center;
-  font-size: 15px;
-  margin-bottom: 20px;
+.ProductList {
+  display: flex;
+  flex-direction: column;
 }
- 
-@media (max-width: 768px) {
+
+.ProductItem {
+  display: grid;
+  grid-template-columns: 72px minmax(120px, 1fr) auto auto;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.65);
+}
+
+.ProductItem:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.ProductImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  overflow: hidden;
+  color: #60a5fa;
+  background: #0b1425;
+  border: 1px solid #26364f;
+  border-radius: 12px;
+  font-size: 24px;
+}
+
+.ProductImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  object-fit: contain;
+  box-sizing: border-box;
+}
+
+.ProductInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ProductInfo h3 {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.ProductInfo span {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.ProductPrice,
+.ProductSubtotal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 85px;
+}
+
+.ProductPrice span,
+.ProductSubtotal span {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.ProductPrice strong,
+.ProductSubtotal strong {
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+
+.ProductSubtotal strong {
+  color: #60a5fa;
+}
+
+.Empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 45px 20px;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.Empty svg {
+  color: #475569;
+  font-size: 35px;
+}
+
+.Empty p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.ErrorPanel {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px 28px;
+  color: #cbd5e1;
+  background: #111c30;
+  border: 1px solid #26364f;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.ErrorIcon {
+  color: #f87171;
+  font-size: 42px;
+}
+
+.ErrorPanel h1 {
+  margin: 20px 0 10px;
+  color: #f8fafc;
+  font-size: 24px;
+}
+
+.ErrorPanel p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+@media (max-width: 1050px) {
   .Container {
-    padding: 20px 15px;
+    padding: 26px;
   }
 
-  .Card {
+  .ProductItem {
+    grid-template-columns: 64px minmax(100px, 1fr) auto auto;
+    gap: 14px;
+  }
+
+  .ProductImage {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+@media (max-width: 760px) {
+  .Container {
+    padding: 20px 14px;
+  }
+
+  .PageHeader {
+    align-items: flex-start;
     flex-direction: column;
   }
 
-  .ImageWrapper {
-    flex: none;
-    padding: 30px;
-    border-radius: 20px 0px 0px 10px ;
+  .Title {
+    font-size: 27px;
   }
 
-  .Details {
-    padding: 24px;
+  .OrderReference {
+    align-items: flex-start;
+  }
+
+  .OverviewGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .OverviewCard {
+    padding: 17px;
+  }
+
+  .ContentGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .Panel {
+    padding: 18px;
+    border-radius: 13px;
+  }
+
+  .ProductItem {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .ProductImage {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ProductInfo {
+    align-self: center;
+  }
+
+  .ProductPrice,
+  .ProductSubtotal {
+    align-items: flex-start;
+    padding-left: 74px;
+  }
+
+  .ProductPrice {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #26364f;
+  }
+
+  .ProductSubtotal {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 4px;
+  }
+
+  .ProductPrice,
+  .ProductSubtotal {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .Container {
+    padding: 16px 10px;
   }
 
   .Title {
-    font-size: 20px;
-  }
-
-  .Price {
     font-size: 24px;
   }
+
+  .Subtitle {
+    font-size: 12px;
+  }
+
+  .Panel {
+    padding: 15px;
+  }
+
+  .InfoItem {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .InfoItem > strong {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .StatusBadge {
+    white-space: normal;
+  }
+
+  .TotalRow strong {
+    font-size: 17px;
+  }
 }
-
-@media (max-width: 500px) {
-  .Container {
-    padding: 15px 10px;
-  }
-
-  .Details {
-    padding: 20px 16px;
-  }
-
-  .Title {
-    font-size: 18px;
-  }
-
-  .Price {
-    font-size: 22px;
-  }
-}
+ 
