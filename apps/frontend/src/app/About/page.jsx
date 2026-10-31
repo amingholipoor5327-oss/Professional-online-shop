@@ -25,7 +25,7 @@ export default function About() {
               مشاهده فروشگاه
             </Link>
 
-            <Link href="/Contact" className={styles.secondaryButton}>
+            <Link href="/ContactUS" className={styles.secondaryButton}>
               ارتباط با من
             </Link>
           </div>
